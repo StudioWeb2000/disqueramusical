@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coyote Tattoo Records</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <style>
+#novedades img {
+   width: 100%;
+  height: 500px;         /* alto fijo del banner */
+  object-fit: contain;   /* asegura que la imagen completa se vea */
+  background-color: #131212; /* relleno con negro si sobran espacios */
+}
+ /* Banner principal */
+#hero img {
+  width: 100%;
+  height: 500px;         /* alto fijo del banner */
+  object-fit: contain;   /* asegura que la imagen completa se vea */
+  background-color: #000; /* relleno con negro si sobran espacios */
+}
+
+    :root{
+      --morado:#6a0dad;
+      --plateado:#cfcfcf;
+      --fondo:#0c0c12;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg,var(--fondo), #1b0b2a 1200px);
+      color:#fff;
+      scroll-behavior:smooth;
+    }
+
+    /* ====== Header (franja superior) ====== */
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:12px 28px;
+      background: linear-gradient(90deg, rgba(106,13,173,0.95), rgba(60,10,80,0.9));
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .brand img{
+      width:56px; height:56px; border-radius:10px; object-fit:cover; border:2px solid var(--plateado);
+    }
+    .brand h1{
+      font-size:20px; margin:0; color:var(--plateado);
+    }
+    nav a{
+      color:#f3e8ff; text-decoration:none; margin-left:18px; font-weight:600;
+    }
+    nav a:hover{ color:#fff; transform:translateY(-1px) }
+
+    /* ====== HERO / Banner principal (independiente) ====== */
+    .hero-wrapper{ position:relative; width:100%; max-height:520px; overflow:hidden; }
+    .swiper-hero { height: 440px; }
+    .swiper-hero .swiper-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .hero-overlay{
+      position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      pointer-events:none;
+    }
+    .hero-card{
+      pointer-events:auto;
+      background: rgba(0,0,0,0.45);
+      padding:18px 26px; border-radius:12px; text-align:center; backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-card h2{ margin:0 0 8px; font-size:32px; color:var(--plateado) }
+    .hero-card p{ margin:0 0 12px; color:#eee }
+    .hero-card .btn{ background:var(--morado); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; margin:0 6px; font-weight:600;}
+    .hero-card .btn.secondary{ background:transparent; border:1px solid var(--plateado); color:var(--plateado) }
+
+    /* ====== Secciones ====== */
+    section{ padding:40px 18px; max-width:1200px; margin:0 auto; }
+    section h3{ text-align:center; color:var(--plateado); margin-bottom:18px; }
+
+    /* ====== Swiper general styling ====== */
+    .swiper{ width:100%; }
+    .slide-card{ background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.2)); border-radius:12px; overflow:hidden; text-align:center; }
+    .slide-card img{ width:100%; height:180px; object-fit:cover; display:block; }
+    .slide-card .meta{ padding:10px 12px; color:#ddd }
+
+    /* ====== Controls unique colors ====== */
+    .hero-controls .swiper-button-next, .hero-controls .swiper-button-prev,
+    .artists-controls .swiper-button-next, .artists-controls .swiper-button-prev,
+    .songs-controls .swiper-button-next, .songs-controls .swiper-button-prev,
+    .novedades-controls .swiper-button-next, .novedades-controls .swiper-button-prev {
+      color: var(--morado);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .swiper-pagination-bullet{ background:var(--plateado) }
+
+    /* ====== Artists: show 3 slides on desktop ====== */
+    @media (min-width:1024px){
+      .artists .swiper-slide img{ height:220px }
+    }
+    @media (max-width:768px){
+      .hero-card h2{ font-size:22px }
+      .hero-card p{ font-size:14px }
+    }
+  /* Fondo de partículas */
+#particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* detrás de todo */
+  pointer-events: none; /* no bloquea clics */
+}
+  </style>
+</head>
+<body>
+
+
+    <div id="particles-bg"></div>
+  <!-- HEADER / FRANJA SUPERIOR -->
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="Logo Coyote (reemplaza coyote.jpg)">
+      <h1>Coyote Tattoo Records</h1>
+    </div>
+
+    <nav>
+      <a href="#hero">Inicio</a>
+      <a href="#artistas">Artistas</a>
+      <a href="#novedades">Novedades</a>
+      <a href="#canciones">Canciones</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO / BANNER PRINCIPAL (INDEPENDIENTE) -->
+  <main id="hero" class="hero-wrapper" aria-label="Banner principal">
+    <div class="swiper swiper-hero">
+      <div class="swiper-wrapper">
+        <!-- Reemplaza src por tus banners -->
+        <div class="swiper-slide"><img src="logo.png" alt="Banner 1"></div>
+        <div class="swiper-slide"><img src="coyote.jpg" alt="Banner 2"></div>
+        <div class="swiper-slide"><img src="bd.jpg" alt="Banner 3"></div>
+      </div>
+      <!-- controles hero (únicos) -->
+      <div class="hero-controls">
+        <div class="swiper-button-prev hero-prev"></div>
+        <div class="swiper-button-next hero-next"></div>
+        <div class="swiper-pagination hero-pagination"></div>
+      </div>
+    </div>
+
+    <!-- overlay con texto y botones (aparece encima del banner) -->
+    <div class="hero-overlay" aria-hidden="false">
+      <div class="hero-card">
+        <h2>Coyote Tattoo Records</h2>
+        <p>La casa de la música con estilo — descubre artistas, novedades y canciones.</p>
+        <button class="btn" onclick="document.getElementById('artistas').scrollIntoView({behavior:'smooth'})">Ver Artistas</button>
+        <button class="btn secondary" onclick="document.getElementById('novedades').scrollIntoView({behavior:'smooth'})">Novedades</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ARTISTAS (carrusel independiente, 3 por vista, flechas únicas) -->
+  <section id="artistas" aria-label="Artistas destacados">
+    <h3>Artistas Destacados</h3>
+    <div class="swiper artistas">
+      <div class="swiper-wrapper">
+        <!-- cada slide es clicable: abre video de YouTube en nueva pestaña -->
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=CRfy1yorkec" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/CRfy1yorkec/hqdefault.jpg" alt="Artista 1">
+              <div class="meta"><strong>Artista 1</strong><div>Single reciente</div></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Artista 2">
+              <div class="meta"><strong>Artista 2</strong><div>Álbum pop</div></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=kJQP7kiw5Fk" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/kJQP7kiw5Fk/hqdefault.jpg" alt="Artista 3">
+              <div class="meta"><strong>Artista 3</strong><div>Video oficial</div></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=2Vv-BfVoq4g" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/2Vv-BfVoq4g/hqdefault.jpg" alt="Artista 4">
+              <div class="meta"><strong>Artista 4</strong><div>Colaboración</div></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/3JZ_D3ELwOQ/hqdefault.jpg" alt="Artista 5">
+              <div class="meta"><strong>Artista 5</strong><div>Live session</div></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=ysz5S6PUM-U" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg" alt="Artista 6">
+              <div class="meta"><strong>Artista 6</strong><div>Nuevo single</div></div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- controles únicos para artistas -->
+      <div class="artists-controls">
+        <div class="swiper-button-prev artists-prev"></div>
+        <div class="swiper-button-next artists-next"></div>
+        <div class="swiper-pagination artists-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES (autoplay independiente) -->
+  <section id="novedades" aria-label="Novedades">
+    <h3>Novedades</h3>
+    <div class="swiper novedades">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=ScNNfyq3d_w" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/ScNNfyq3d_w/hqdefault.jpg" alt="Novedad 1">
+              <div class="meta"><strong>Novedad 1</strong><div>Estreno</div></div>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=VbfpW0pbvaU" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/VbfpW0pbvaU/hqdefault.jpg" alt="Novedad 2">
+              <div class="meta"><strong>Novedad 2</strong><div>Álbum</div></div>
+            </div>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=fLexgOxsZu0" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/fLexgOxsZu0/hqdefault.jpg" alt="Novedad 3">
+              <div class="meta"><strong>Novedad 3</strong><div>Single</div></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="novedades-controls">
+        <div class="swiper-button-prev novedades-prev"></div>
+        <div class="swiper-button-next novedades-next"></div>
+        <div class="swiper-pagination novedades-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANCIONES (miniaturas, autoplay opcional) -->
+  <section id="canciones" aria-label="Canciones">
+    <h3>Canciones Populares</h3>
+    <div class="swiper canciones">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=JGwWNGJdvx8" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/JGwWNGJdvx8/hqdefault.jpg" alt="Canción 1">
+              <div class="meta"><strong>Canción 1</strong></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=60ItHLz5WEA" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/60ItHLz5WEA/hqdefault.jpg" alt="Canción 2">
+              <div class="meta"><strong>Canción 2</strong></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=RgKAFK5djSk" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/RgKAFK5djSk/hqdefault.jpg" alt="Canción 3">
+              <div class="meta"><strong>Canción 3</strong></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.youtube.com/watch?v=ktvTqknDobU" target="_blank" rel="noopener">
+            <div class="slide-card">
+              <img loading="lazy" src="https://img.youtube.com/vi/ktvTqknDobU/hqdefault.jpg" alt="Canción 4">
+              <div class="meta"><strong>Canción 4</strong></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="songs-controls">
+        <div class="swiper-button-prev songs-prev"></div>
+        <div class="swiper-button-next songs-next"></div>
+        <div class="swiper-pagination songs-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // HERO (banner) - autoplay, pagination, hero controls unique
+    const hero = new Swiper('.swiper-hero', {
+      loop: true,
+      autoplay: { delay: 4500, disableOnInteraction: false },
+      pagination: { el: '.hero-pagination', clickable: true },
+      navigation: { nextEl: '.hero-next', prevEl: '.hero-prev' },
+    });
+
+    // ARTISTS - 3 per view, navigation unique
+    const artists = new Swiper('.artistas', {
+      loop: true,
+      slidesPerView: 3,
+      spaceBetween: 20,
+      navigation: { nextEl: '.artists-next', prevEl: '.artists-prev' },
+      pagination: { el: '.artists-pagination', clickable: true },
+      breakpoints: {
+        320: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+
+    // NOVEDADES - autoplay single slide
+    const novedades = new Swiper('.novedades', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      navigation: { nextEl: '.novedades-next', prevEl: '.novedades-prev' },
+      pagination: { el: '.novedades-pagination', clickable: true },
+    });
+
+    // SONGS - small thumbnails, can autoplay or manual
+    const songs = new Swiper('.canciones', {
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 18,
+      navigation: { nextEl: '.songs-next', prevEl: '.songs-prev' },
+      pagination: { el: '.songs-pagination', clickable: true },
+      breakpoints: {
+        320: { slidesPerView: 2 },
+        640: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 }
+      }
+    });
+
+    
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  particles: {
+    number: { value: 120 },
+    color: { value: ["#ff0000", "#00ffea", "#ffe600", "#ff00ff"] },
+    shape: { type: "circle" },
+    opacity: {
+      value: 0.7,
+      random: true
+    },
+    size: {
+      value: 4,
+      random: true
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      outModes: "out"
+    },
+    links: {
+      enable: true,
+      distance: 120,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 1
+    }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "repulse" },
+      onClick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 120 },
+      push: { quantity: 4 }
+    }
+  },
+  background: {
+    color: "#000" // fondo negro
+  }
+});
+</script>
+<!-- FOOTER -->
+<footer id="contacto" style="background:#111; color:#fff; padding:30px 20px; display:flex; justify-content:space-around; flex-wrap:wrap; margin-top:50px; position:relative; z-index:10;">
+
+  <div style="display:flex; flex-wrap:wrap; justify-content:space-around; align-items:flex-start; gap:20px; width:100%;">
+
+    <!-- Redes Sociales -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:16px;">Redes Sociales</h3>
+      <a href="https://www.facebook.com/coyotestattoo" target="_blank" style="color:#fff; display:flex; align-items:center; gap:5px; margin:5px 0; text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="20">
+        Facebook
+      </a>
+      <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" style="color:#fff; display:flex; align-items:center; gap:5px; margin:5px 0; text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="20">
+        Instagram
+      </a>
+    </div>
+
+    <!-- Ubicación -->
+    <div style="flex:2; min-width:200px; text-align:center; margin:10px;">
+      <h3 style="margin-bottom:10px; font-size:16px;">Ubicación</h3>
+      <iframe 
+        src="https://www.google.com/maps?q=C.+Bajada+Balta+127,+Miraflores+15074&output=embed"
+        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+      <p style="margin-top:5px;">C. Bajada Balta 127, Miraflores 15074</p>
+    </div>
+
+    <!-- Contacto -->
+    <div style="flex:1; min-width:150px;">
+      <h3 style="margin-bottom:10px; font-size:16px;">Contacto</h3>
+      <p style="margin:2px 0;">Tel: +51 987 654 321</p>
+      <p style="margin:2px 0;">Email: contacto@coyotestattoo.com</p>
+      <p style="margin:2px 0;">Dirección: Bajada Balta 127 y 135, Lima</p>
+    </div>
+
+  </div>
+
+  <p style="text-align:center; margin-top:15px; font-size:12px;">&copy; 2025 Coyote Tattoo Perú</p>
+
+</footer>
+
+
+</body>
+</html>
