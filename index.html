@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -424,12 +423,47 @@
   </div>
 </section>
 <style>
-
-.artists-section {
+ .artists-section {
   padding: 80px 5%;
   text-align: center;
   background: #0f0f0f;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fuegos artificiales */
+.firework {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ff0080 0%, #ffff00 80%);
+  border-radius: 50%;
+  animation: launch 1.5s ease-out infinite;
+}
+
+.firework:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.firework:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes launch {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-200px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
 }
 
 .artists-section h2 {
@@ -498,8 +532,313 @@
   color: var(--accent, #e12b5f);
 }
 
+</style>
+
+  <!--eventos -->
+<section id="eventos" class="eventos">
+  <h2>Próximos Eventos</h2>
+  <div class="eventos-container">
+    <div class="evento-card">
+      <h3>Tour Lima 2025</h3>
+      <p>📍 Estadio Nacional</p>
+      <p>🗓 12 Noviembre 2025</p>
+      <button class="btn-tickets">Comprar Entradas</button>
+    </div>
+
+    <div class="evento-card">
+      <h3>Acústico Exclusivo</h3>
+      <p>📍 Teatro Municipal</p>
+      <p>🗓 03 Diciembre 2025</p>
+      <button class="btn-tickets">Comprar Entradas</button>
+    </div>
+  </div>
+</section>
+<style>.eventos {
+  background: #0A0A0A;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.eventos h2 {
+  color: #FF007F;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.eventos-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.evento-card {
+  background: #111;
+  border: 2px solid #9D4EDD;
+  padding: 25px;
+  width: 280px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 15px #FF007F;
+}
+
+.btn-tickets {
+  background: #FF007F;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-tickets:hover {
+  background: #9D4EDD;
+}
+</style>
+
+    <!--tienda-->
+<section id="merch" class="merch">
+  <h2>Merch Oficial</h2>
+  <div class="merch-grid">
+    <div class="merch-item">
+      <img src="img/polo1.jpg" alt="">
+      <h3>Polo Edición Limitada</h3>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="merch-item">
+      <img src="img/gorra1.jpg" alt="">
+      <h3>Gorra PZ</h3>
+      <button>Agregar al carrito</button>
+    </div>
+  </div>
+</section>
+<style>.merch {
+  padding: 80px 10%;
+  background: #0A0A0A;
+  text-align: center;
+}
+
+.merch h2 {
+  color: #FF007F;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.merch-item {
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+  border: 2px solid #3F37C9;
+}
+
+.merch-item:hover {
+  box-shadow: 0 0 15px #FF007F;
+  transform: scale(1.05);
+}
+
+.merch-item button {
+  background: #FF007F;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+</style>
+
+        <!-- VIDEOS -->
+
+<!-- VIDEOS -->
+<!-- Política para que YouTube cargue bien ✅ -->
+  <meta http-equiv="Content-Security-Policy" content="frame-src https://www.youtube.com https://www.youtube-nocookie.com;">
+
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .videos-section {
+      padding: 80px 0;
+      background: #0A0A0A;
+    }
+
+    .section-title {
+      font-size: 42px;
+      color: #FF007F;
+      text-align: center;
+      margin-bottom: 50px;
+      text-shadow: 0 0 10px #9D4EDD;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .video-card {
+      background: #111;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #3F37C9;
+    }
+
+    .video-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #FF007F;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .video-card p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #F5F5F5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sección de Videos ✅ -->
+
+<section id="videos" class="videos-section">
+  <div class="container">
+    <h2 class="section-title">Videos</h2>
+
+    <div class="video-grid">
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=3RZ9vlI4Qv8" target="_blank">
+        <img src="https://img.youtube.com/vi/3RZ9vlI4Qv8/maxresdefault.jpg" alt="Video 1">
+        <p>Nombre del Video 1</p>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=90avMgG5NAM" target="_blank">
+        <img src="https://img.youtube.com/vi/90avMgG5NAM/maxresdefault.jpg" alt="Video 2">
+        <p>Nombre del Video 2</p>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=j4Jz6VTM6bw" target="_blank">
+        <img src="https://img.youtube.com/vi/j4Jz6VTM6bw/maxresdefault.jpg" alt="Video 3">
+        <p>Nombre del Video 3</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.videos-section {
+  padding: 80px 0;
+  background: #0A0A0A;
+}
+
+.section-title {
+  font-size: 42px;
+  color: #FF007F;
+  text-align: center;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px #9D4EDD;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 90%;
+  margin: auto;
+}
+
+.video-card {
+  background: #111;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #3F37C9;
+  text-decoration: none;
+}
+
+.video-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #FF007F;
+}
+
+.video-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.video-card p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #F5F5F5;
+}
+</style>
 
 
+   <!--NESWLETE -->
+   <section id="newsletter" class="newsletter">
+  <h2>Únete a Nuestra Familia</h2>
+  <p>Recibe novedades, lanzamientos y eventos exclusivos</p>
+  <form>
+    <input type="email" placeholder="Tu correo aquí">
+    <button>Suscribirme</button>
+  </form>
+</section>
+<style>.newsletter {
+  background: #111;
+  padding: 70px 10%;
+  text-align: center;
+  border-top: 2px solid #3F37C9;
+}
+
+.newsletter h2 {
+  color: #FF007F;
+  font-size: 30px;
+}
+
+.newsletter input {
+  padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+.newsletter button {
+  background: #9D4EDD;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
 </style>
     <!-- LANZAMIENTOS -->
     <section class="releases" id="releases">
@@ -527,7 +866,718 @@
         </div>
       </div>
     </section>
+    <!-- ROCK -->
+<section class="releases rock">
+  <h2>Rock</h2>
+  <div class="release-slider">
+
+    <div class="release">
+      <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">
+        <img src="https://images.unsplash.com/photo-1518972559570-7cc1309f3229?auto=format&fit=crop&w=600&q=80">
+      </a>
+      <h3>Fire Rebels</h3>
+      <p>Nuevo álbum explosivo</p>
+    </div>
+
+    <div class="release">
+      <a href="https://youtube.com" target="_blank">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=600&q=80">
+      </a>
+      <h3>Thunder Road</h3>
+      <p>Tour mundial</p>
+    </div>
+
+    <div class="release">
+      <a href="https://spotify.com" target="_blank">
+        <img src="https://images.unsplash.com/photo-1514894780887-121968d00567?auto=format&fit=crop&w=600&q=80">
+      </a>
+      <h3>Rage Nights</h3>
+      <p>Remaster 2025</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- POP -->
+<section class="releases  tecno">
+  <h2>Tecno</h2>
+  <div class="release-slider">
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1464375117522-1311dfaab9ca?auto=format&fit=crop&w=600&q=80">
+      <h3>Galaxy Pop</h3>
+      <p>Hit global</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80">
+      <h3>Electro Heart</h3>
+      <p>Disponible ahora</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80">
+      <h3>Starlight</h3>
+      <p>Nueva versión deluxe</p>
+    </div>
+  </div>
+</section>
+
+<!-- BALADAS -->
+
+
+
+<section class="releases baladas">
+  <h2>Baladas</h2>
+  <div class="release-slider">
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80">
+      <h3>Romantic Souls</h3>
+      <p>EP emocional</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1526171110648-5aa0a1c89d11?auto=format&fit=crop&w=600&q=80">
+      <h3>Moon Lovers</h3>
+      <p>Nuevo sencillo</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1482954363933-4bed78b117cd?auto=format&fit=crop&w=600&q=80">
+      <h3>Heartstrings</h3>
+      <p>Balada top 1</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="releases pop">
+  <h2>pop</h2>
+  <div class="release-slider">
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80">
+      <h3>Romantic Souls</h3>
+      <p>EP emocional</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1526171110648-5aa0a1c89d11?auto=format&fit=crop&w=600&q=80">
+      <h3>Moon Lovers</h3>
+      <p>Nuevo sencillo</p>
+    </div>
+
+    <div class="release">
+      <img src="https://images.unsplash.com/photo-1482954363933-4bed78b117cd?auto=format&fit=crop&w=600&q=80">
+      <h3>Heartstrings</h3>
+      <p>Balada top 1</p>
+    </div>
+  </div>
+</section>
+
   </main>
+
+  <style>
+    .tecno .release {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.tecno .release:hover {
+  transform: scale(1.07);
+}
+
+.tecno .release:hover::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  animation: flash 0.4s linear;
+}
+
+@keyframes flash {
+  from { left: -100%; }
+  to { left: 100%; }
+}
+
+.pop .release {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 10px #7f5af0;
+}
+
+.pop .release:hover {
+  transform: perspective(600px) rotateY(6deg) rotateX(4deg) scale(1.06);
+  box-shadow: 0 0 22px #b29cff;
+}
+
+    .baladas .release {
+  border: 2px solid #ff53b3;
+  box-shadow: 0 0 12px #ff53b3;
+  animation: pulseBalada 3s infinite ease-in-out;
+}
+
+@keyframes pulseBalada {
+  0%,100% { transform: scale(1); box-shadow: 0 0 10px #ff53b3; }
+  50% { transform: scale(1.05); box-shadow: 0 0 22px #ff80d4; }
+}
+
+.baladas .release:hover {
+  transform: scale(1.08);
+}
+
+/* 🔥 EFECTO ROCK: zoom suave automático */
+.releases.rock .release img {
+  animation: rockZoom 4s infinite ease-in-out;
+}
+
+@keyframes rockZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+
+.releases {
+  text-align: center;
+  padding: 60px 0;
+  background: #000;
+}
+
+.releases h2 {
+  font-size: 40px;
+  color: #FF007F;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #9D4EDD;
+}
+
+.release-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+/* Ocultar barra en Chrome */
+.release-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ Vista Móvil: deslizamiento y primera tarjeta visible */
+@media (max-width: 768px) {
+  .release-slider {
+    padding-left: 40px;
+    scroll-padding-left: 40px;
+    justify-content: flex-start;
+  }
+}
+
+/* ✅ Vista PC: centrar como galería */
+@media (min-width: 769px) {
+  .release-slider {
+    justify-content: center;
+  }
+}
+
+
+.release {
+  flex: 0 0 auto;
+  width: 260px;
+  background: #111;
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  scroll-snap-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 8px #3F37C9;
+}
+
+.release:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #FF007F;
+}
+
+.release img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.release h3 {
+  color: #FF007F;
+  margin: 10px 0 5px;
+}
+
+.release p {
+  color: #EEE;
+  margin: 0;
+}
+</style>
+
+
+<section id="musical-radar" class="musical-radar">
+  <div class="radar-content">
+    
+    <div class="radar-image">
+      <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=900&q=80" alt="Radar musical">
+      <span class="pulse"></span>
+    </div>
+
+    <div class="radar-text">
+      <h2>Radar Musical</h2>
+      <p>Estamos conectando artistas y fans en todo el mundo.  
+      Cada señal es un nuevo talento que está explotando pronto.</p>
+      <button class="btn-saber">Explorar Artistas</button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.musical-radar {
+  background:#0b0b0b;
+  padding:70px 5%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.radar-content {
+  display:flex;
+  gap:50px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+}
+
+.radar-image {
+  position:relative;
+  width:340px;
+  height:340px;
+}
+
+.radar-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.pulse {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:120%;
+  height:120%;
+  background:rgba(255,0,128,0.25);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  animation:pulseRadar 3s infinite ease-in-out;
+}
+
+@keyframes pulseRadar {
+  0% { transform:translate(-50%,-50%) scale(0.8); opacity:0.6; }
+  100% { transform:translate(-50%,-50%) scale(1.2); opacity:0; }
+}
+
+.radar-text {
+  max-width:400px;
+  color:#eee;
+}
+
+.radar-text h2 {
+  color:#FF007F;
+  margin-bottom:15px;
+}
+
+.btn-saber {
+  background:#FF007F;
+  color:#fff;
+  padding:10px 22px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-saber:hover {
+  background:#e2056a;
+}
+</style>
+<section id="social-icons" class="social-icons">
+  <h2>Nuestras Plataformas</h2>
+
+  <div class="icons-grid">
+    <a href="#"><i class="fab fa-spotify"></i><span>Spotify</span></a>
+    <a href="#"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+    <a href="#"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+    <a href="#"><i class="fas fa-music"></i><span>Catálogo</span></a>
+    <a href="#"><i class="fas fa-headphones"></i><span>Fans Club</span></a>
+  </div>
+</section>
+
+<style>
+.social-icons {
+  background:#111;
+  padding:60px 5%;
+  text-align:center;
+}
+
+.social-icons h2 {
+  color:#FF007F;
+  text-shadow:0 0 10px #9D4EDD;
+  margin-bottom:35px;
+}
+
+.icons-grid {
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.icons-grid a {
+  color:#fff;
+  font-size:22px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.icons-grid a:hover {
+  transform:scale(1.2);
+  color:#FF007F;
+}
+</style>
+
+<!-- Iconos FontAwesome si no los tienes aún -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<section class="mapa-musica">
+  <div class="mapa-container">
+    <img class="mapa-img" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80">
+
+    <div class="ondas"></div>
+    <div class="ondas delay"></div>
+    <div class="ondas delay2"></div>
+  </div>
+
+  <div class="info-mapa">
+    <h2>¡Estamos en todas! 🎧</h2>
+    <p>Nuestros estudios, conciertos secretos y puntos donde el bajo retumba.  
+    Si escuchas un *boom-boom*, probablemente estamos cerca.</p>
+    <button class="btn-ubicacion">Ver Ubicaciones</button>
+  </div>
+</section>
+<style>.mapa-musica {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 60px 5%;
+}
+
+.mapa-container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.mapa-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.ondas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,50,100,0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: sonar 2.5s infinite;
+}
+
+.ondas.delay { animation-delay: .8s; }
+.ondas.delay2 { animation-delay: 1.6s; }
+
+@keyframes sonar {
+  0% { transform: translate(-50%,-50%) scale(.3); opacity: 1; }
+  100% { transform: translate(-50%,-50%) scale(4); opacity: 0; }
+}
+
+.info-mapa {
+  max-width: 350px;
+}
+
+.btn-ubicacion {
+  padding: 10px 20px;
+  background: #ff2d6a;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+
+<section id="testimonios" class="testimonios-section">
+  <h2>Testimonios</h2>
+
+  <!-- Flechas PC -->
+  <button class="arrow prev">⟨</button>
+  <button class="arrow next">⟩</button>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      
+      <!-- TESTIMONIO 1 -->
+     <!-- TESTIMONIO 12 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=faces&fit=crop&w=400&q=80">
+  <h3>La Kary</h3>
+  <p class="texto">“¡El mejor movimiento urbano que he apoyado!”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+      <!-- TESTIMONIO 2 -->
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400">
+        <h3>Carlos R.</h3>
+        <p class="texto">“Los mejores lanzamientos del país.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
+
+      <!-- TESTIMONIO 3 -->
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400">
+        <h3>Maya Soul</h3>
+        <p class="texto">“Una gran familia musical.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
+
+
+
+
+<!-- TESTIMONIO 2 -->
+
+
+<!-- TESTIMONIO 4 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400">
+  <h3>Valeria Flow</h3>
+  <p class="texto">“Mostrar mi talento nunca fue tan fácil.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 5 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400">
+  <h3>Maya Soul</h3>
+  <p class="texto">“Aquí encontré mi verdadera familia musical.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 6 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400">
+  <h3>Neko Beat</h3>
+  <p class="texto">“Beats que elevan el alma.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 7 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400">
+  <h3>Leo Street</h3>
+  <p class="texto">“El soundtrack de mi barrio.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 8 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400">
+  <h3>Rafa</h3>
+  <p class="texto">“Visuales que derriten las retinas.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 9 -->
+
+
+<!-- TESTIMONIO 10 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=400">
+  <h3>Toni Bass</h3>
+  <p class="texto">“Desde el bajo hasta el corazón.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 11 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400">
+  <h3>Samu</h3>
+  <p class="texto">“Los descubrí y ya soy fan.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonios-section {
+  background: #111;
+  color: #fff;
+  padding: 70px 0;
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 40px;
+  color: #ff007a;
+  font-size: 2.3rem;
+}
+
+/* Flechas (PC) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff007a;
+  border: none;
+  color: black;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 20px;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+@media(max-width:768px){
+  .arrow{display:none;}
+}
+
+/* Carrusel */
+.carousel-wrapper {
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  gap: 25px;
+  transition: transform .4s ease;
+}
+
+/* Testimonios */
+.testimonio-card {
+  background: #1a1a1a;
+  flex: 0 0 calc(33.33% - 20px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px #ff007a55;
+}
+@media(max-width:768px){
+  .testimonio-card{flex:0 0 85%;}
+}
+
+.foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff007a;
+  margin-bottom: 12px;
+}
+
+.texto {
+  font-style: italic;
+  margin: 10px 0;
+  color: #ddd;
+}
+
+.stars {
+  color: gold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.like {
+  background: #ff007a;
+  border: none;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.like:hover {
+  background: #ff54a6;
+}
+</style>
+
+<script>
+// Movimiento automático + flechas + dedo
+const track = document.querySelector(".carousel-track");
+const cards = document.querySelectorAll(".testimonio-card");
+let i = 0;
+let view = window.innerWidth > 768 ? 3 : 1;
+
+function mover(){
+  i++;
+  if(i > cards.length - view) i = 0;
+  track.style.transform = `translateX(-${i * (100/view)}%)`;
+}
+let auto = setInterval(mover, 3000);
+
+// Flechas PC
+document.querySelector(".next").onclick = ()=>{ mover(); reiniciar(); };
+document.querySelector(".prev").onclick = ()=>{
+  i--;
+  if(i<0) i = cards.length - view;
+  track.style.transform = `translateX(-${i * (100/view)}%)`;
+  reiniciar();
+};
+
+// Dedo móvil
+let inicio=0;
+track.addEventListener("touchstart", e=> inicio = e.touches[0].clientX);
+track.addEventListener("touchend", e=>{
+  const fin = e.changedTouches[0].clientX;
+  if(inicio > fin + 50) mover();
+  if(inicio < fin - 50){
+    i--;
+    if(i<0) i = cards.length - view;
+    track.style.transform = `translateX(-${i * (100/view)}%)`;
+  }
+  reiniciar();
+});
+
+function reiniciar(){
+  clearInterval(auto);
+  auto = setInterval(mover, 3000);
+}
+</script>
 
   <footer>
     <p>© 2025 Peligro Store — Todos los derechos reservados.</p>
@@ -566,4 +1616,7 @@
   </script>
 </body>
 </html>
+
+
+
 
