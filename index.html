@@ -234,217 +234,258 @@ function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
 </script>
+
+
+<!-- noevdades -->
+<section class="carrusel-full-seccion">
+  <h2 class="carrusel-full-titulo">GALERÍA DESTACADA</h2>
+  <p class="carrusel-full-subtitulo">Explora nuestras imágenes destacadas</p>
+
+  <div class="carrusel-full">
+    <button class="flecha-full izquierda-full">&#10094;</button>
+
+    <div class="carrusel-full-items">
+      <div class="item-full">
+        <img src="11.jpg" alt="Imagen 1">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Bolso Cuero Marrón</h3>
+        <p class="descripcion-full">Elegante diseño artesanal</p>
+        <p class="precio-full">S/ 120.00</p>
+      </div>
+
+      <div class="item-full">
+        <img src="12.jpg" alt="Imagen 2">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Cartera Urbana</h3>
+        <p class="descripcion-full">Perfecta para uso diario</p>
+        <p class="precio-full">S/ 95.00</p>
+      </div>
+
+      <div class="item-full">
+        <img src="13.jpg" alt="Imagen 3">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Correa Clásica</h3>
+        <p class="descripcion-full">Cuero sintético resistente</p>
+        <p class="precio-full">S/ 45.00</p>
+      </div>
+
+      <div class="item-full">
+        <img src="14.jpg" alt="Imagen 4">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Mochila Casual</h3>
+        <p class="descripcion-full">Comodidad y estilo</p>
+        <p class="precio-full">S/ 150.00</p>
+      </div>
+
+      <div class="item-full">
+        <img src="15.jpg" alt="Imagen 5">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Billetera Slim</h3>
+        <p class="descripcion-full">Compacta y moderna</p>
+        <p class="precio-full">S/ 40.00</p>
+      </div>
+
+      <div class="item-full">
+        <img src="16.jpg" alt="Imagen 6">
+        <a href="#" class="btn-pedido-full">Hacer pedido</a>
+        <h3>Maletín Ejecutivo</h3>
+        <p class="descripcion-full">Para profesionales elegantes</p>
+        <p class="precio-full">S/ 180.00</p>
+      </div>
+    </div>
+
+    <button class="flecha-full derecha-full">&#10095;</button>
+  </div>
+</section>
+
 <style>
-.carrusel-seccion {
+.carrusel-full-seccion {
+  width: 100%;
+  padding: 60px 0;
   background-color: #fff;
   text-align: center;
-  padding: 60px 30px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  position: relative;
 }
 
-.titulo-seccion {
+.carrusel-full-titulo {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-.subtitulo {
+.carrusel-full-subtitulo {
   color: #555;
   margin-bottom: 40px;
 }
 
-.carrusel {
+/* Carrusel principal */
+.carrusel-full {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  max-width: 1300px;
+  width: calc(100% - 1.6cm);
   margin: 0 auto;
+  padding: 0;
 }
 
-.carrusel-items {
+.carrusel-full-items {
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 30px;
-  scrollbar-width: none;
-}
-
-.carrusel-items::-webkit-scrollbar {
-  display: none;
-}
-
-.item {
-  flex: 0 0 auto;
-  width: 312px;
-  background: #fff;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.item:hover {
-  transform: translateY(-8px);
-}
-
-.item img {
   width: 100%;
-  border-bottom: 1px solid #eee;
-  border-radius: 12px 12px 0 0;
-  display: block;
+  overflow-x: hidden;
+  gap: 20px;
 }
 
-/* Botón dentro de la imagen */
-.btn-pedido {
+.item-full {
+  flex: 0 0 calc((100% - 60px) / 4);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.item-full:hover {
+  transform: translateY(-6px);
+}
+
+.item-full img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Botón hacer pedido */
+.btn-pedido-full {
   position: absolute;
   top: 10px;
-  left: 10px;
-  background-color: rgba(17, 17, 17, 0.8);
+  right: 10px;
+  background: #ff004c;
   color: #fff;
   padding: 6px 12px;
-  text-decoration: none;
   font-size: 0.85rem;
-  border-radius: 5px;
+  border-radius: 6px;
+  text-decoration: none;
   transition: background 0.3s;
   z-index: 2;
 }
 
-.btn-pedido:hover {
-  background-color: #ff004c;
+.btn-pedido-full:hover {
+  background: #d80040;
 }
 
-/* Contenido debajo de la imagen */
-.item h3 {
+/* Texto debajo de imagen */
+.item-full h3 {
   font-size: 1rem;
+  margin: 10px 0 4px;
+  color: #222;
+}
+
+.descripcion-full {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.precio-full {
+  font-weight: bold;
   color: #111;
-  margin: 15px 0 5px;
+  margin-bottom: 10px;
 }
 
-.precio {
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.flecha {
+/* Flechas */
+.flecha-full {
   position: absolute;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   color: #fff;
-  border: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  padding: 8px 12px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
   z-index: 10;
 }
 
-.flecha:hover {
-  background: rgba(0, 0, 0, 0.8);
+.izquierda-full { left: 10px; }
+.derecha-full { right: 10px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .item-full { flex: 0 0 calc((100% - 20px) / 2); }
+
+  .btn-pedido-full {
+    top: auto;
+    right: auto;
+    position: static;
+    margin-top: 10px;
+    display: inline-block;
+  }
 }
 
-.flecha.izquierda {
-  left: 15px;
-}
+@media (max-width: 600px) {
+  .item-full { flex: 0 0 100%; }
 
-.flecha.derecha {
-  right: 15px;
-}
-
-@media (max-width: 768px) {
-  .item {
-    width: 250px;
+  .btn-pedido-full {
+    position: static;
+    display: inline-block;
+    margin-top: 10px;
   }
 }
 </style>
 
-<section class="carrusel-seccion">
-  <h2 class="titulo-seccion">NOVEDADES</h2>
-  <p class="subtitulo">Compre y explore lo nuevo en la tienda.</p>
-
-  <div class="carrusel">
-    <button class="flecha izquierda">&#10094;</button>
-
-    <div class="carrusel-items">
-      <div class="item">
-        <img src="10.jpg" alt="Vinilo 1">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>ÉRASE UNA VEZ - VINILO ROJO RUBÍ</h3>
-        <p class="precio">$30</p>
-      </div>
-
-      <div class="item">
-        <img src="11.jpg" alt="Vinilo 2">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>EL LP DE GRANDES ÉXITOS</h3>
-        <p class="precio">$28</p>
-      </div>
-
-      <div class="item">
-        <img src="12.jpg" alt="Vinilo 3">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>DISCO RETRO DE COLECCIÓN</h3>
-        <p class="precio">$32</p>
-      </div>
-
-      <div class="item">
-        <img src="13.jpg" alt="Vinilo 4">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>VINILO EDICIÓN LIMITADA</h3>
-        <p class="precio">$35</p>
-      </div>
-
-      <div class="item">
-        <img src="14.jpg" alt="Vinilo 5">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>CLÁSICOS DEL ROCK</h3>
-        <p class="precio">$25</p>
-      </div>
-
-      <div class="item">
-        <img src="15.jpg" alt="Vinilo 6">
-        <a href="#" class="btn-pedido">hacer PEDIDO</a>
-        <h3>JAZZ EN VINILO AZUL</h3>
-        <p class="precio">$27</p>
-      </div>
-
-      <div class="item">
-        <img src="16.jpg" alt="Vinilo 7">
-        <a href="#" class="btn-pedido">PEDIDO</a>
-        <h3>EDICIÓN EXCLUSIVA DE BANDA</h3>
-        <p class="precio">$34</p>
-      </div>
-
-      <div class="item">
-        <img src="17.jpg" alt="Vinilo 8">
-        <a href="#" class="btn-pedido">PEDIDO</a>
-        <h3>COLECCIÓN VINTAGE</h3>
-        <p class="precio">$31</p>
-      </div>
-    </div>
-
-    <button class="flecha derecha">&#10095;</button>
-  </div>
-</section>
-
 <script>
-  const carrusel = document.querySelector('.carrusel-items');
-  const izquierda = document.querySelector('.izquierda');
-  const derecha = document.querySelector('.derecha');
+document.addEventListener('DOMContentLoaded', () => {
+  const carrusel = document.querySelector('.carrusel-full-items');
+  const items = document.querySelectorAll('.carrusel-full-items .item-full');
+  const derecha = document.querySelector('.derecha-full');
+  const izquierda = document.querySelector('.izquierda-full');
+  let index = 0;
+  const total = items.length;
 
-  izquierda.addEventListener('click', () => {
-    carrusel.scrollBy({ left: -350, behavior: 'smooth' });
-  });
+  function obtenerVisibles() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 4;
+  }
+
+  function moverCarrusel() {
+    const itemWidth = items[0].offsetWidth + 20;
+    carrusel.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
+  }
 
   derecha.addEventListener('click', () => {
-    carrusel.scrollBy({ left: 350, behavior: 'smooth' });
+    const visibles = obtenerVisibles();
+    if (index < total - visibles) {
+      index++;
+      moverCarrusel();
+    }
   });
+
+  izquierda.addEventListener('click', () => {
+    if (index > 0) {
+      index--;
+      moverCarrusel();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    index = 0;
+    moverCarrusel();
+  });
+});
 </script>
 
+
+<!--novedades -->
 <style>
   * {
     margin: 0;
@@ -576,12 +617,7 @@ function toggleMenu() {
   }
 </style>
 <style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #fff;
-    color: #222;
-  }
+
 
   .seccion {
     display: flex;
@@ -737,13 +773,6 @@ function toggleMenu() {
   }, 4000);
 </script>
 <section class="galeria-asimetrica">
-  <div class="columna izquierda">
-    <div class="item grande">
-      <img src="bd.jpg" alt="Imagen grande">
-      <div class="info">ARTISTA PRINCIPAL<br><span>GRANDE</span></div>
-    </div>
-  </div>
-
   <div class="columna derecha">
     <div class="item">
       <img src="17.jpg" alt="Imagen pequeña 1">
@@ -762,20 +791,29 @@ function toggleMenu() {
       <div class="info">ARTISTA 4</div>
     </div>
   </div>
+
+  <div class="columna izquierda">
+    <div class="item grande">
+      <img src="bd.jpg" alt="Imagen grande">
+      <div class="info">ARTISTA PRINCIPAL<br><span>GRANDE</span></div>
+    </div>
+  </div>
 </section>
 
 <style>
 .galeria-asimetrica {
   display: flex;
+  flex-direction: row-reverse; /* 🔹 invierte el orden: imagen grande a la derecha */
   gap: 10px;
-  background-color: #faf8f8;
+  background-color: #f6f0f0;
   color: #fff;
   justify-content: center;
   align-items: stretch;
-  padding: 10px;
+  padding: 20px;
+  overflow: hidden;
 }
 
-/* Columna izquierda (imagen grande) */
+/* Columna derecha (imagen grande) */
 .izquierda {
   flex: 2;
   display: flex;
@@ -787,23 +825,25 @@ function toggleMenu() {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  /* 🔹 Ajusta el tamaño de la imagen grande aquí */
-  width: 800px;   /* controla la anchura */
-  height: 700px;  /* controla la altura */
+  width: 800px;
+  height: 700px;
+  max-width: 100%;
 }
 
 .izquierda img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s ease;
 }
 
 .izquierda .grande:hover img {
   transform: scale(1.05);
+  filter: brightness(1);
 }
 
-/* Columna derecha (4 imágenes pequeñas 2x2) */
+/* Columna izquierda (4 imágenes pequeñas en cuadrícula 2x2) */
 .derecha {
   flex: 1.5;
   display: grid;
@@ -822,14 +862,16 @@ function toggleMenu() {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s ease;
 }
 
 .derecha .item:hover img {
   transform: scale(1.1);
+  filter: brightness(1);
 }
 
-/* Textos sobre imágenes */
+/* Texto sobre las imágenes */
 .info {
   position: absolute;
   bottom: 10px;
@@ -846,27 +888,410 @@ function toggleMenu() {
   font-size: 1.3rem;
 }
 
-/* Responsivo */
+/* --- RESPONSIVO --- */
 @media (max-width: 900px) {
   .galeria-asimetrica {
-    flex-direction: column;
+    flex-direction: column; /* 🔹 En celular, vuelve a orden normal (vertical) */
     align-items: center;
   }
 
+  .izquierda {
+    order: 1;
+  }
+
+  .derecha {
+    order: 2;
+  }
+
   .izquierda .grande {
-    width: 90%;
-    height: 350px; /* reduce altura en móvil */
+    width: 95%;
+    height: auto;
+    max-height: 300px;
   }
 
   .derecha {
     width: 90%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 200px);
+    gap: 5px;
+  }
+
+  .derecha .item {
+    height: 150px;
+  }
+
+  .info {
+    font-size: 0.8rem;
+  }
+}
+
+/* --- CELULARES PEQUEÑOS --- */
+@media (max-width: 480px) {
+  .izquierda .grande {
+    max-height: 220px;
+  }
+
+  .derecha .item {
+    height: 200px;
+     width: 160px;
+  }
+
+  img {
+    box-shadow: none !important;
+    -webkit-box-reflect: none !important;
   }
 }
 </style>
+<!-- 🔥 Banner tipo carrusel -->
+<section class="banner-slider">
+  <div class="slider">
+    <div class="slide active">
+      <img src="15.jpg" alt="Banner 1">
+      <div class="texto-banner">
+        <h2>PELIGRO STOR</h2>
+        <p>Compra la colección ahora</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="bd.jpg" alt="Banner 2">
+      <div class="texto-banner">
+        <h2>EDICIÓN LIMITADA</h2>
+        <p>Descubre los nuevos diseños</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="16.jpg" alt="Banner 3">
+      <div class="texto-banner">
+        <h2>EXCLUSIVO ONLINE</h2>
+        <p>Encuentra tu estilo</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flechas -->
+  <button class="flecha-banner izquierda">❮</button>
+  <button class="flecha-banner derecha">❯</button>
+</section>
+
+<!-- 🔻 CSS -->
+<style>
+.banner-slider {
+  position: relative;
+   width: 1520px;
+  height: 900px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background: black;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2000px;
+  height: 1000px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.texto-banner {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+  z-index: 3;
+}
+
+.texto-banner h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.texto-banner p {
+  font-size: 1.3rem;
+}
+
+/* 🎯 Flechas */
+.flecha-banner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.flecha-banner:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.flecha-banner.izquierda { left: 20px; }
+.flecha-banner.derecha { right: 20px; }
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .texto-banner h2 {
+    font-size: 2rem;
+  }
+  .texto-banner p {
+    font-size: 1rem;
+  }
+  .flecha-banner {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  .banner-slider {
+  position: relative;
+   width: 400px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background: black;
+}
+}
+</style>
+
+<!-- ⚙️ Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
+  const nextBtn = document.querySelector(".flecha-banner.derecha");
+  const prevBtn = document.querySelector(".flecha-banner.izquierda");
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  // Auto cambio cada 5 segundos
+  setInterval(nextSlide, 5000);
+});
+</script>
+<section class="shop-by-decades">
+  <h2>Shop by Decades</h2>
+  <div class="decade-buttons">
+    <button onclick="mostrarDecada('1970')">1970s</button>
+    <button onclick="mostrarDecada('1980')">1980s</button>
+    <button onclick="mostrarDecada('1990')">1990s</button>
+    <button onclick="mostrarDecada('2000')">2000s</button>
+    <button onclick="mostrarDecada('2010')">2010s</button>
+    <button onclick="mostrarDecada('2020')">2020s</button>
+  </div>
+
+  <div class="galeria-decadas">
+    <!-- 1970 -->
+    <div class="grupo" id="decada-1970">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 1980 -->
+    <div class="grupo" id="decada-1980" style="display:none;">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 1990 -->
+    <div class="grupo" id="decada-1990" style="display:none;">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2000 -->
+    <div class="grupo" id="decada-2000" style="display:none;">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2010 -->
+    <div class="grupo" id="decada-2010" style="display:none;">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="grupo" id="decada-2020" style="display:none;">
+      <div class="carrusel">
+        <div class="imagenes">
+          <img src="3LOGO.png" alt="">
+          <img src="bd.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.shop-by-decades {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f2eaea;
+}
+
+.shop-by-decades h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #222;
+}
+
+.decade-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.decade-buttons button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.decade-buttons button:hover {
+  background-color: #e63946;
+}
+
+.carrusel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carrusel .imagenes {
+  display: flex;
+  animation: deslizar 20s linear infinite;
+}
+
+.carrusel img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+@keyframes deslizar {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+<script>
+function mostrarDecada(decada) {
+  document.querySelectorAll('.grupo').forEach(g => g.style.display = 'none');
+  const grupoActivo = document.getElementById(`decada-${decada}`);
+  grupoActivo.style.display = 'block';
+
+  // Reinicia la animación del carrusel al cambiar de década
+  const carrusel = grupoActivo.querySelector('.imagenes');
+  carrusel.style.animation = 'none';
+  setTimeout(() => carrusel.style.animation = '', 10);
+}
+</script>
+
+
 
 </body>
 </html>
+
 
 
