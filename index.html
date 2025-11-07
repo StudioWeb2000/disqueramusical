@@ -1,13 +1,12 @@
 
 
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Peligro Stor</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body {
   margin: 0;
@@ -21,7 +20,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('bd.jpg'); /* cambia por tu imagen */
+  background-image: url('https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80'); /* cambia por tu imagen */
   background-size: cover;
   background-position: center;
   color: white;
@@ -202,13 +201,17 @@ header {
   </div>
       <a href="#">FIRMADOS Y EXCLUSIVOS</a>
       <a href="#">ARTISTAS</a>
+          <a href="#">BLACKSTAR RECORDS</a>
     </nav>
 
     <div class="logo">
-      <img src="logo.png" alt="Peligro Stor">
+    
+   
+      <img src="black.png" alt="Peligro Stor">
     </div>
 
     <div class="nav-right">
+      
       <span class="icon">🔍</span>
       <span class="icon">🛒</span>
     </div>
@@ -235,10 +238,187 @@ function toggleMenu() {
 }
 </script>
 
+<!-- SECCIÓN DE ARTISTAS -->
+<section id="artists" class="artists-section">
+  <h2>Nuestros Artistas</h2>
+  <p class="artists-subtitle">Descubre los talentos de Peligro Store</p>
 
+  <div class="artists-grid">
+    <!-- ARTISTA 1 -->
+    <div class="artist-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Luna Vibes">
+      <h3>Luna Vibes</h3>
+      <p>Pop Alternativo</p>
+      <div class="artist-socials">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- ARTISTA 2 -->
+    <div class="artist-card">
+      <img src="https://images.unsplash.com/photo-1504595403659-9088ce801e29?auto=format&fit=crop&w=600&q=80" alt="El Rayo">
+      <h3>El Rayo</h3>
+      <p>Trap Latino</p>
+      <div class="artist-socials">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- ARTISTA 3 -->
+    <div class="artist-card">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Maya Soul">
+      <h3>Maya Soul</h3>
+      <p>R&B / Soul</p>
+      <div class="artist-socials">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- ARTISTA 4 -->
+    <div class="artist-card">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Dante Crew">
+      <h3>Dante Crew</h3>
+      <p>Rap / Hip Hop</p>
+      <div class="artist-socials">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- ARTISTA 5 -->
+    <div class="artist-card">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Zeta Flow">
+      <h3>Zeta Flow</h3>
+      <p>Electrónica / Indie</p>
+      <div class="artist-socials">
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+ .artists-section {
+  padding: 80px 5%;
+  text-align: center;
+  background: #0f0f0f;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fuegos artificiales */
+.firework {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ff0080 0%, #ffff00 80%);
+  border-radius: 50%;
+  animation: launch 1.5s ease-out infinite;
+}
+
+.firework:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.firework:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes launch {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-200px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(0);
+    opacity: 0;
+  }
+}
+
+.artists-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--accent, #e12b5f);
+}
+
+.artists-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 50px;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.artist-card {
+  background: #1b1b1b;
+  border-radius: 14px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+.artist-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.artist-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0 4px;
+}
+
+.artist-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.artist-socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.artist-socials a {
+  color: #fff;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.artist-socials a:hover {
+  color: var(--accent, #e12b5f);
+}
+
+</style>
 <!-- noevdades -->
 <section class="carrusel-full-seccion">
-  <h2 class="carrusel-full-titulo">GALERÍA DESTACADA</h2>
+  <h2 class="carrusel-full-titulo">NUESTROS PRODUCTOS </h2>
   <p class="carrusel-full-subtitulo">Explora nuestras imágenes destacadas</p>
 
   <div class="carrusel-full">
@@ -401,7 +581,7 @@ function toggleMenu() {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
+  background-image: url('https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80');
   color: #fff;
   font-size: 1.8rem;
   cursor: pointer;
@@ -942,171 +1122,191 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 </style>
 <!-- 🔥 Banner tipo carrusel -->
+<!-- 🔥 Banner tipo slider -->
+<!-- ✅ BANNER SLIDER -->
+<!-- ✅ BANNER SLIDER COMPLETO Y FUNCIONAL -->
 <section class="banner-slider">
   <div class="slider">
+
     <div class="slide active">
-      <img src="15.jpg" alt="Banner 1">
+      <img src="8.18.jpg" alt="Banner 1">
       <div class="texto-banner">
-        <h2>PELIGRO STOR</h2>
+        <h2>PELIGRO STORE</h2>
         <p>Compra la colección ahora</p>
       </div>
     </div>
+
     <div class="slide">
-      <img src="bd.jpg" alt="Banner 2">
+      <img src="bd16.jpg" alt="Banner 2">
       <div class="texto-banner">
         <h2>EDICIÓN LIMITADA</h2>
         <p>Descubre los nuevos diseños</p>
       </div>
     </div>
+
     <div class="slide">
-      <img src="16.jpg" alt="Banner 3">
+      <img src="20.jpg" alt="Banner 3">
       <div class="texto-banner">
         <h2>EXCLUSIVO ONLINE</h2>
         <p>Encuentra tu estilo</p>
       </div>
     </div>
+
   </div>
 
-  <!-- Flechas -->
+  <!-- Flechas (solo PC) -->
   <button class="flecha-banner izquierda">❮</button>
   <button class="flecha-banner derecha">❯</button>
+
+  <!-- Rayitas -->
+  <div class="puntos"></div>
 </section>
 
-<!-- 🔻 CSS -->
+
 <style>
+/* ✅ Contenedor principal */
 .banner-slider {
+  width: 100%;
+  background: #000;
   position: relative;
-   width: 1520px;
-  height: 900px;
   overflow: hidden;
-  margin-bottom: 40px;
-  background: black;
 }
 
-.slider {
-  width: 100%;
-  height: 100%;
-  position: relative;
+/* ✅ Slides */
+.slide { 
+  display: none; 
+  position: relative; 
 }
+.slide.active { display: block; }
 
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2000px;
-  height: 1000px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-  z-index: 2;
-}
-
+/* ✅ Imágenes de tamaño real */
+/* ✅ Tamaño controlado SOLO en PC */
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 1500px;   /* 👉 puedes cambiarlo */
+  height: 700px;   /* 👉 puedes cambiarlo */
+  object-fit: cover; /* Mantiene proporción y llena el espacio */
+  margin: 0 auto;  /* Centrado */
+  display: block;
 }
 
+
+/* ✅ Texto centrado */
 .texto-banner {
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  color: white;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
-  z-index: 3;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0px 0px 8px #000;
+  font-weight: bold;
 }
 
-.texto-banner h2 {
-  font-size: 3rem;
-  margin: 0;
-}
-
-.texto-banner p {
-  font-size: 1.3rem;
-}
-
-/* 🎯 Flechas */
+/* ✅ Flechas SOLO PC */
 .flecha-banner {
+  display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
+  font-size: 35px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
   border: none;
-  color: white;
-  font-size: 2rem;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background 0.3s;
+  padding: 6px 14px;
+  z-index: 20;
+  border-radius: 6px;
+}
+.flecha-banner.izquierda { left: 10px; }
+.flecha-banner.derecha { right: 10px; }
+
+/* ✅ Indicadores rayitas */
+.puntos {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.puntos span {
+  width: 22px;
+  height: 5px;
+  background: rgba(255,255,255,0.5);
+  display: inline-block;
+  margin: 0 4px;
+  border-radius: 3px;
+}
+.puntos .activo {
+  background: #fff;
 }
 
-.flecha-banner:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.flecha-banner.izquierda { left: 20px; }
-.flecha-banner.derecha { right: 20px; }
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .texto-banner h2 {
-    font-size: 2rem;
-  }
-  .texto-banner p {
-    font-size: 1rem;
-  }
-  .flecha-banner {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
+/* ✅ Celular */
+@media(max-width: 768px) {
   .banner-slider {
-  position: relative;
-   width: 400px;
-  height: 300px;
-  overflow: hidden;
-  margin-bottom: 40px;
-  background: black;
-}
+    height:350px; /* 🔥 Altura más pequeña para celular */
+  }
+
+  .slide img {
+    width: 380px;
+    height:350px;;
+    object-fit: cover;
+  }
+
+
+  .flecha-banner {
+    display: none;
+  }
 }
 </style>
 
-<!-- ⚙️ Script -->
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
-  const nextBtn = document.querySelector(".flecha-banner.derecha");
-  const prevBtn = document.querySelector(".flecha-banner.izquierda");
+  const sig = document.querySelector(".flecha-banner.derecha");
+  const ant = document.querySelector(".flecha-banner.izquierda");
+  const puntosContainer = document.querySelector(".puntos");
+
   let index = 0;
 
-  function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[i].classList.add("active");
+  slides.forEach((_, i) => {
+    const punto = document.createElement("span");
+    punto.addEventListener("click", () => {
+      index = i;
+      showSlide();
+    });
+    puntosContainer.appendChild(punto);
+  });
+
+  const puntos = document.querySelectorAll(".puntos span");
+
+  function showSlide() {
+    slides.forEach(s => s.classList.remove("active"));
+    puntos.forEach(p => p.classList.remove("activo"));
+
+    slides[index].classList.add("active");
+    puntos[index].classList.add("activo");
   }
 
-  function nextSlide() {
+  sig?.addEventListener("click", () => {
     index = (index + 1) % slides.length;
-    showSlide(index);
-  }
+    showSlide();
+  });
 
-  function prevSlide() {
+  ant?.addEventListener("click", () => {
     index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  }
+    showSlide();
+  });
 
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide();
+  }, 5000);
 
-  // Auto cambio cada 5 segundos
-  setInterval(nextSlide, 5000);
+  showSlide();
 });
 </script>
+
+
+
 <section class="shop-by-decades">
   <h2>Shop by Decades</h2>
   <div class="decade-buttons">
@@ -1124,6 +1324,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="carrusel">
         <div class="imagenes">
           <img src="15.jpg" alt="">
+          <img src="18.jpg" alt="">
+          <img src="12.jpg" alt="">
+          <img src="19.jpg" alt="">
+          <img src="6.jpg" alt="">
+          <img src="11.jpg" alt="">
+          <img src="21.jpg" alt="">
+           <img src="15.jpg" alt="">
           <img src="18.jpg" alt="">
           <img src="12.jpg" alt="">
           <img src="19.jpg" alt="">
@@ -1251,8 +1458,8 @@ document.addEventListener("DOMContentLoaded", () => {
 .carrusel {
   width: 100%;
   overflow: hidden;
-  position: relative;
-  max-width: 900px;
+ 
+  max-width: 2000px;
   margin: 0 auto;
 }
 
@@ -1289,9 +1496,261 @@ function mostrarDecada(decada) {
 </script>
 
 
+<section id="testimonios" class="testimonios-section">
+  <h2>Testimonios</h2>
+
+  <!-- Flechas PC -->
+  <button class="arrow prev">⟨</button>
+  <button class="arrow next">⟩</button>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      
+      <!-- TESTIMONIO 1 -->
+     <!-- TESTIMONIO 12 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=faces&fit=crop&w=400&q=80">
+  <h3>La Kary</h3>
+  <p class="texto">“¡El mejor movimiento urbano que he apoyado!”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+      <!-- TESTIMONIO 2 -->
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400">
+        <h3>Carlos R.</h3>
+        <p class="texto">“Los mejores lanzamientos del país.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
+
+      <!-- TESTIMONIO 3 -->
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400">
+        <h3>Maya Soul</h3>
+        <p class="texto">“Una gran familia musical.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
+
+
+
+
+<!-- TESTIMONIO 2 -->
+
+
+<!-- TESTIMONIO 4 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400">
+  <h3>Valeria Flow</h3>
+  <p class="texto">“Mostrar mi talento nunca fue tan fácil.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 5 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400">
+  <h3>Maya Soul</h3>
+  <p class="texto">“Aquí encontré mi verdadera familia musical.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 6 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400">
+  <h3>Neko Beat</h3>
+  <p class="texto">“Beats que elevan el alma.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 7 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400">
+  <h3>Leo Street</h3>
+  <p class="texto">“El soundtrack de mi barrio.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 8 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400">
+  <h3>Rafa</h3>
+  <p class="texto">“Visuales que derriten las retinas.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 9 -->
+
+
+<!-- TESTIMONIO 10 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=400">
+  <h3>Toni Bass</h3>
+  <p class="texto">“Desde el bajo hasta el corazón.”</p>
+  <div class="stars">★★★★☆</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+<!-- TESTIMONIO 11 -->
+<div class="testimonio-card">
+  <img class="foto" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400">
+  <h3>Samu</h3>
+  <p class="texto">“Los descubrí y ya soy fan.”</p>
+  <div class="stars">★★★★★</div>
+  <button class="like">👍 Me gusta</button>
+</div>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonios-section {
+  background: #111;
+  color: #fff;
+  padding: 70px 0;
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 40px;
+  color: #ff007a;
+  font-size: 2.3rem;
+}
+
+/* Flechas (PC) */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff007a;
+  border: none;
+  color: black;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 20px;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+@media(max-width:768px){
+  .arrow{display:none;}
+}
+
+/* Carrusel */
+.carousel-wrapper {
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  gap: 25px;
+  transition: transform .4s ease;
+}
+
+/* Testimonios */
+.testimonio-card {
+  background: #1a1a1a;
+  flex: 0 0 calc(33.33% - 20px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px #ff007a55;
+}
+@media(max-width:768px){
+  .testimonio-card{flex:0 0 85%;}
+}
+
+.foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff007a;
+  margin-bottom: 12px;
+}
+
+.texto {
+  font-style: italic;
+  margin: 10px 0;
+  color: #ddd;
+}
+
+.stars {
+  color: gold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.like {
+  background: #ff007a;
+  border: none;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.like:hover {
+  background: #ff54a6;
+}
+</style>
+
+<script>
+// Movimiento automático + flechas + dedo
+const track = document.querySelector(".carousel-track");
+const cards = document.querySelectorAll(".testimonio-card");
+let i = 0;
+let view = window.innerWidth > 768 ? 3 : 1;
+
+function mover(){
+  i++;
+  if(i > cards.length - view) i = 0;
+  track.style.transform = `translateX(-${i * (100/view)}%)`;
+}
+let auto = setInterval(mover, 3000);
+
+// Flechas PC
+document.querySelector(".next").onclick = ()=>{ mover(); reiniciar(); };
+document.querySelector(".prev").onclick = ()=>{
+  i--;
+  if(i<0) i = cards.length - view;
+  track.style.transform = `translateX(-${i * (100/view)}%)`;
+  reiniciar();
+};
+
+// Dedo móvil
+let inicio=0;
+track.addEventListener("touchstart", e=> inicio = e.touches[0].clientX);
+track.addEventListener("touchend", e=>{
+  const fin = e.changedTouches[0].clientX;
+  if(inicio > fin + 50) mover();
+  if(inicio < fin - 50){
+    i--;
+    if(i<0) i = cards.length - view;
+    track.style.transform = `translateX(-${i * (100/view)}%)`;
+  }
+  reiniciar();
+});
+
+function reiniciar(){
+  clearInterval(auto);
+  auto = setInterval(mover, 3000);
+}
+</script>
 
 </body>
 </html>
+
 
 
 
