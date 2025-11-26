@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,26 +14,25 @@ body {
   color: #fff;
 }
 
-/* BANNER con menú */
+/* BANNER    https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80*/
 .banner {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80'); /* cambia por tu imagen */
+  background-image: url('gi.jpeg');
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* ENCABEZADO DENTRO DEL BANNER */
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
   padding: 12px 40px;
 }
 
@@ -55,7 +53,7 @@ header {
   color: #e50914;
 }
 
-/* Submenú */
+/* Submenú escritorio */
 .menu-item {
   position: relative;
 }
@@ -85,8 +83,32 @@ header {
 }
 
 /* Logo centro */
-.logo img {
+.logo-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+}
+.logo-container svg {
+  width: 140px;
+  height: 140px;
+}
+.logo-container text {
+  fill: white;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.logo-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
   height: 60px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 /* Derecha */
@@ -130,24 +152,49 @@ header {
 
 /* Menú móvil */
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 0;
-  left: 0;
-  background: #000;
+  left: -100%;
+  background: rgba(0, 0, 0, 0.95);
   width: 75%;
   height: 100%;
   padding: 30px;
-  z-index: 999;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: left 0.4s ease;
 }
-.mobile-menu a {
+.mobile-menu.active {
+  left: 0;
+}
+
+/* Botón de cierre */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Estilo de enlaces en menú móvil */
+.mobile-menu a,
+.mobile-menu .mobile-title {
   display: block;
   color: #fff;
   text-decoration: none;
-  margin: 20px 0;
+  margin: 15px 0;
+  font-weight: bold;
+  cursor: pointer;
 }
-.mobile-menu.active {
-  display: block;
+.mobile-submenu {
+  display: none;
+  padding-left: 15px;
+}
+.mobile-submenu a {
+  font-weight: normal;
+  margin: 8px 0;
 }
 
 /* RESPONSIVE */
@@ -168,6 +215,23 @@ header {
     padding: 20px;
   }
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: -40px; /* 🔥 Acerca las redes al logo */
+}
+
+.social-icon svg {
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
 </style>
 </head>
 <body>
@@ -180,41 +244,59 @@ header {
       <div class="menu-item">
         <a href="#">MÚSICA ▼</a>
         <div class="submenu">
-          <a href="#">Vinilo</a>
-          <a href="#">CD</a>
-          <a href="#">Casetes</a>
-          <a href="#">Bandas Sonoras</a>
-          <a href="#">7 Pulgadas</a>
-          <a href="#">Comprar Toda la Música</a>
+          <a href="vinilo.html">Vinilo</a>
+          <a href="cd.html">CD</a>
+
+           <a href="artista.html">artistas</a>
+        
         </div>
       </div>
       
-     <div class="menu-item">
-    <a href="#">MERCANCÍA ▼</a>
-    <div class="submenu">
-      <a href="#">Discos de artista</a>
-      <a href="#">Ropa</a>
-      <a href="#">Posters</a>
-      <a href="#">Accesorios</a>
-      <a href="#">Coleccionables</a>
-    </div>
-  </div>
-      <a href="#">FIRMADOS Y EXCLUSIVOS</a>
+      <div class="menu-item">
+        <a href="#">MERCANCÍA ▼</a>
+        <div class="submenu">
+          <a href="cd.html">Discos de artista</a>
+          <a href="polos.html">Ropa</a>
+            <a href="artista.html">artistas</a>
+        
+        </div>
+      </div>
+
+      
+      
       <a href="#">ARTISTAS</a>
-          <a href="#">BLACKSTAR RECORDS</a>
     </nav>
 
-    <div class="logo">
-    
-   
-      <img src="black.png" alt="Peligro Stor">
+    <div class="logo-container">
+      <svg viewBox="0 0 200 200">
+        <path id="top-arc" d="M40,112 A60,60 0 0,1 160,112" fill="transparent"/>
+        <text><textPath href="#top-arc" startOffset="50%" text-anchor="middle">BLACKSTAR</textPath></text>
+        <path id="bottom-arc" d="M40,105 A60,60 0 0,0 160,105" fill="transparent"/>
+        <text><textPath href="#bottom-arc" startOffset="50%" text-anchor="middle">RECORDS</textPath></text>
+      </svg>
+      <img src="black.png" alt="Peligro Stor" class="logo-img">
     </div>
 
     <div class="nav-right">
-      
-      <span class="icon">🔍</span>
-      <span class="icon">🛒</span>
-    </div>
+  <a href="#" class="social-icon" title="Facebook">
+    <svg width="26" height="26" fill="#fff" viewBox="0 0 24 24">
+      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.79c0-2.33 1.38-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18v7.03C18.34 21.2 22 17.06 22 12.07z"/>
+    </svg>
+  </a>
+
+  <a href="#" class="social-icon" title="Instagram">
+    <svg width="26" height="26" fill="#fff" viewBox="0 0 24 24">
+      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zm4.25-9.88a1.12 1.12 0 1 1-1.12-1.12 1.12 1.12 0 0 1 1.12 1.12z"/>
+    </svg>
+  </a>
+
+  <a href="#" class="social-icon" title="YouTube">
+    <svg width="30" height="30" fill="#fff" viewBox="0 0 24 24">
+      <path d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.7 2.5 12 2.5 12 2.5h-.1s-4.7 0-8.1.3c-.5.1-1.5.1-2.4 1C.7 4.5.5 6.2.5 6.2S0 8.3 0 10.4v1.9c0 2.1.5 4.2.5 4.2s.2 1.7.9 2.4c.9.9 2.1.9 2.7 1C7.3 20 12 20 12 20s4.7 0 8.1-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4s.5-2.1.5-4.2v-1.9c0-2.1-.5-4.2-.5-4.2zM9.7 14.9V8.8l6.1 3.1-6.1 3z"/>
+    </svg>
+  </a>
+</div>
+
   </header>
 
   <div class="banner-text">
@@ -224,10 +306,39 @@ header {
   </div>
 </section>
 
-<!-- Menú móvil -->
+<!-- Menú móvil  
+
+      <a href="#">FIRMADOS Y EXCLUSIVOS</a>
+   <a href="#">Posters</a>
+          <a href="#">Accesorios</a>
+          <a href="#">Coleccionables</a>
+  <a href="#">Casetes</a>
+          <a href="#">Bandas Sonoras</a>
+          <a href="#">7 Pulgadas</a>
+          <a href="#">Comprar Toda la Música</a>
+<span class="icon">🔍</span>
+      <span class="icon">🛒</span>-->
 <div id="mobileMenu" class="mobile-menu">
-  <a href="#">MÚSICA</a>
-  <a href="#">MERCANCÍA</a>
+  <span class="close-btn" onclick="toggleMenu()">✖</span>
+
+  <div class="mobile-item">
+    <a class="mobile-title" onclick="toggleSubmenu(this)">MÚSICA ▼</a>
+    <div class="mobile-submenu">
+      <a href="vinilo.html">Vinilo</a>
+      <a href="cd.html">CD</a>
+    
+    </div>
+  </div>
+
+  <div class="mobile-item">
+    <a class="mobile-title" onclick="toggleSubmenu(this)">MERCANCÍA ▼</a>
+    <div class="mobile-submenu">
+      <a href="cd.html">Discos de artista</a>
+      <a href="polos.html">Ropa</a>
+     
+    </div>
+  </div>
+
   <a href="#">FIRMADOS Y EXCLUSIVOS</a>
   <a href="#">ARTISTAS</a>
 </div>
@@ -236,154 +347,230 @@ header {
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
+
+function toggleSubmenu(el) {
+  const submenu = el.nextElementSibling;
+  submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+}
 </script>
+</body>
+
+
+
 
 <!-- SECCIÓN DE ARTISTAS -->
 <section id="artists" class="artists-section">
   <h2>Nuestros Artistas</h2>
   <p class="artists-subtitle">Descubre los talentos de Peligro Store</p>
 
-  <div class="artists-grid">
-    <!-- ARTISTA 1 -->
-    <div class="artist-card">
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Luna Vibes">
-      <h3>Luna Vibes</h3>
-      <p>Pop Alternativo</p>
-      <div class="artist-socials">
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+  <div class="slider-container">
+    <div class="artists-slider">
+      <!-- ARTISTA 1 -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Luna Vibes">
+        <h4>Luna Vibes</h4>
+        <p>Pop Alternativo</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- ARTISTA 2 -->
-    <div class="artist-card">
-      <img src="https://images.unsplash.com/photo-1504595403659-9088ce801e29?auto=format&fit=crop&w=600&q=80" alt="El Rayo">
-      <h3>El Rayo</h3>
-      <p>Trap Latino</p>
-      <div class="artist-socials">
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- ARTISTA 2 -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1504595403659-9088ce801e29?auto=format&fit=crop&w=600&q=80" alt="El Rayo">
+        <h4>El Rayo</h4>
+        <p>Trap Latino</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- ARTISTA 3 -->
-    <div class="artist-card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Maya Soul">
-      <h3>Maya Soul</h3>
-      <p>R&B / Soul</p>
-      <div class="artist-socials">
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- ARTISTA 3 -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Maya Soul">
+        <h4>Maya Soul</h4>
+        <p>R&B / Soul</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- ARTISTA 4 -->
-    <div class="artist-card">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Dante Crew">
-      <h3>Dante Crew</h3>
-      <p>Rap / Hip Hop</p>
-      <div class="artist-socials">
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- ARTISTA 4 -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Dante Crew">
+        <h4>Dante Crew</h4>
+        <p>Rap / Hip Hop</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
-    </div>
 
-    <!-- ARTISTA 5 -->
-    <div class="artist-card">
-      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Zeta Flow">
-      <h3>Zeta Flow</h3>
-      <p>Electrónica / Indie</p>
-      <div class="artist-socials">
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- ARTISTA 5 -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Zeta Flow">
+        <h4>El Rayo</h4>
+        <p>Electrónica / Indie</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- NUEVOS 6 ARTISTAS -->
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Neo Wave">
+        <h4>Neo Wave</h4>
+        <p>Electro Pop</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=600&q=80" alt="Rosa Flame">
+        <h4>Rosa Flame</h4>
+        <p>Pop Urbano</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=600&q=80" alt="Drako">
+        <h4>El Rayo</h4>
+        <p>Trap / Drill</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80" alt="Mika Blue">
+        <h4>Mika Blue</h4>
+        <p>Indie Pop</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Shadow X">
+        <h4>Shadow X</h4>
+        <p>Hip Hop</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="artist-card">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Kira Moon">
+        <h4>Kira Moon</h4>
+        <p>Reggaeton</p>
+        <div class="artist-socials">
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
     </div>
   </div>
+  
+
+  <div class="slider-nav">
+    <button class="prev">&#10094;</button>
+    <div class="slider-dots"></div>
+    <button class="next">&#10095;</button>
+  </div>
+
+<button class="view-more">Ver más artistas</button>
+
+<script>
+  document.querySelector('.view-more').addEventListener('click', function() {
+    window.location.href = 'artista.html';
+  });
+</script>
 </section>
+
 <style>
- .artists-section {
+.artists-section {
+ background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
   padding: 80px 5%;
   text-align: center;
-  background: #0f0f0f;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Fuegos artificiales */
-.firework {
-  position: absolute;
-  bottom: 0;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #ff0080 0%, #ffff00 80%);
-  border-radius: 50%;
-  animation: launch 1.5s ease-out infinite;
-}
-
-.firework:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.firework:nth-child(3) {
-  animation-delay: 1s;
-}
-
-@keyframes launch {
-  0% {
-    transform: translateY(0) scale(0.5);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-200px) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-200px) scale(0);
-    opacity: 0;
-  }
 }
 
 .artists-section h2 {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 10px;
-  color: var(--accent, #e12b5f);
+  color: var(--accent, #bda5ac);
 }
 
 .artists-subtitle {
   font-size: 1rem;
   color: #ccc;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-.artists-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+/* Slider */
+.slider-container {
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.artist-card {
-  background: #1b1b1b;
-  border-radius: 14px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+
 
 .artist-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 20px rgba(255,255,255,0.1);
 }
 
+
+.artists-slider {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.artist-card {
+  min-width: 250px;
+  max-width: 250px;
+  background: #1b1b1b;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  height: 400px; /* altura uniforme para todas las tarjetas */
+}
+
 .artist-card img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: 220px; /* altura fija */
+  object-fit: cover; /* cubre el contenedor sin deformarse */
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -391,19 +578,22 @@ function toggleMenu() {
 .artist-card h3 {
   font-size: 1.2rem;
   margin: 10px 0 4px;
+  text-align: center;
 }
 
 .artist-card p {
   color: #aaa;
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .artist-socials {
-  margin-top: 10px;
+  margin-top: auto; /* empuja los iconos al final */
   display: flex;
   justify-content: center;
   gap: 15px;
 }
+
 
 .artist-socials a {
   color: #fff;
@@ -412,13 +602,143 @@ function toggleMenu() {
 }
 
 .artist-socials a:hover {
-  color: var(--accent, #e12b5f);
+  color: var(--accent, #0c0809);
 }
 
+/* Dots */
+.slider-dots {
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.slider-dots span {
+  width: 12px;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dots span.active {
+  background: var(--accent, #e2e2e4);
+}
+
+/* Flechas */
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.slider-nav button {
+  background: var(--accent, #20070e);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-nav button:hover {
+  background: #474803;
+}
+
+/* Botón */
+.view-more {
+  margin-top: 40px;
+  background: var(--accent, #e12b5f);
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.view-more:hover {
+  background: #ff4b7d;
+}
 </style>
+
+<script>
+const slider = document.querySelector('.artists-slider');
+const dotsContainer = document.querySelector('.slider-dots');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const slides = Array.from(slider.children);
+let currentIndex = 0;
+
+// Número de slides visibles a la vez
+const visibleSlides = 5;
+
+// Número de puntos que quieres mostrar
+const totalDots = slides.length - visibleSlides + 1; // 11 - 5 + 1 = 7
+
+for (let i = 0; i < totalDots; i++) {
+  const dot = document.createElement('span');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => {
+    currentIndex = i;
+    updateSlider();
+  });
+  dotsContainer.appendChild(dot);
+}
+
+
+function updateSlider() {
+  const slideWidth = slides[0].offsetWidth + 20; // ancho + gap
+  // Limitar el índice máximo para que no deje espacio vacío
+  const maxIndex = slides.length - visibleSlides;
+  const indexToUse = Math.min(currentIndex, maxIndex);
+  slider.style.transform = `translateX(-${indexToUse * slideWidth}px)`;
+
+  // Actualizar puntos
+  dotsContainer.querySelectorAll('span').forEach((d, i) => {
+    d.classList.toggle('active', i === currentIndex);
+  });
+}
+
+// Flechas
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  const maxIndex = slides.length - visibleSlides;
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+    updateSlider();
+  }
+});
+
+// Auto slide
+setInterval(() => {
+  const maxIndex = slides.length - visibleSlides;
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  updateSlider();
+}, 5000);
+
+
+</script>
+
 <!-- noevdades -->
 <section class="carrusel-full-seccion">
-  <h2 class="carrusel-full-titulo">NUESTROS PRODUCTOS </h2>
+  <h4 class="carrusel-full-titulo">NUESTROS PRODUCTOS </h4>
   <p class="carrusel-full-subtitulo">Explora nuestras imágenes destacadas</p>
 
   <div class="carrusel-full">
@@ -543,7 +863,7 @@ function toggleMenu() {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #ff004c;
+  background: #2d059d;
   color: #fff;
   padding: 6px 12px;
   font-size: 0.85rem;
@@ -581,8 +901,8 @@ function toggleMenu() {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-image: url('https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80');
-  color: #fff;
+  background-image: url('https://unsplash.com/es/fotos/disco-de-vinilo-en-tocadiscos-de-vinilo-tOurUz3aMu0');
+  color: #0f0b0b;
   font-size: 1.8rem;
   cursor: pointer;
   width: 45px;
@@ -690,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* 🔴 Cuadro rojo con imagen */
   .image-box {
-    background-color: #a00000;
+    background-color: #300b0b;
     width: 50%;
     height: 500px;
     display: flex;
@@ -722,7 +1042,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   .text-box h2 {
     font-size: 1.2rem;
-    color: #a00000;
+    color: #250707;
     letter-spacing: 2px;
     margin-bottom: 10px;
   }
@@ -743,7 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .text-box a {
     display: inline-block;
     text-decoration: none;
-    background: #a00000;
+    background: #1e0c0c;
     color: #fff;
     padding: 12px 25px;
     border-radius: 8px;
@@ -751,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   .text-box a:hover {
-    background: #d33;
+    background: rgb(26, 7, 7);
   }
 
   /* 🔄 Sección intercalada (imagen izquierda / derecha) */
@@ -796,6 +1116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 </style>
+
 <style>
 
 
@@ -811,7 +1132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   .imagen-cuadro {
-    background-color: #7b1a1a; /* rojo vino */
+  
     padding: 30px;
     border-radius: 10px;
     flex: 1;
@@ -822,10 +1143,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   .imagen-cuadro img {
    width: 700px;   /* controla la anchura */
-  height: 500px;  /* controla la altura */
+  height: 800px;  /* controla la altura */
   object-fit: cover; /* mantiene proporción visual y evita deformación */
   border-radius: 10px; /* opcional, bordes redondeados */
   
+
+  transition: opacity 0.02s ease-in-out;  
+
+
 }
 
   .texto {
@@ -833,7 +1158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   padding: 0 8%;  /* 🔹 agrega margen solo al texto */
   }
 
-  .texto h2 {
+  .texto h3 {
     font-size: 32px;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -842,7 +1167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   .texto p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #444;
+    color: #010101;
   }
 
   .texto button {
@@ -889,7 +1214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <img src="10.jpg" alt="Imagen 1">
   </div>
   <div class="texto">
-    <h2>TROYE SIVAN — EN UN SUEÑO 5º ANIVERSARIO</h2>
+    <h3>TROYE SIVAN — EN UN SUEÑO 5º ANIVERSARIO</h3>
     <p>Celebrando el quinto aniversario de un álbum icónico lleno de emociones y estilo contemporáneo.</p>
     <button>COMERCIO</button>
   </div>
@@ -900,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <img src="11.jpg" alt="Imagen 2">
   </div>
   <div class="texto">
-    <h2>LANZAMIENTO — NUEVAS COLABORACIONES</h2>
+    <h3>LANZAMIENTO — NUEVAS COLABORACIONES</h3>
     <p>Explora las nuevas colaboraciones exclusivas con artistas emergentes de la escena global.</p>
     <button>DESCUBRIR</button>
   </div>
@@ -911,7 +1236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <img src="12.jpg" alt="Imagen 3">
   </div>
   <div class="texto">
-    <h2>EXPERIENCIA — EL SONIDO DE LA PASIÓN</h2>
+    <h3>EXPERIENCIA — EL SONIDO DE LA PASIÓN</h3>
     <p>Sumérgete en la intensidad de la música con un sonido que marca tendencia en cada nota.</p>
     <button>EXPLORAR</button>
   </div>
@@ -952,6 +1277,110 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 4000);
 </script>
+<style>h3 {
+  color: #000; /* negro */
+}</style>
+<div class="promo-box">
+  <div class="promo-close">✕</div>
+
+  <h3>OFERTA ROCKERA</h3>
+  <p>SOLO POR ESTA SEMANA DESCUENTO ESPECIAL EN TU SEGUNDO DISCO<br><strong class="price">S/1000</strong></p>
+
+  <button>Comprar ahora</button>
+
+  <div class="promo-icon">🎸💿</div>
+</div>
+
+<style>
+.promo-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1a1a1a;
+  color: #fff;
+  width: 160px; /* MÁS PEQUEÑO */
+  padding: 9px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  font-family: 'Arial Black', Arial, sans-serif;
+  z-index: 9999;
+  animation: pop 0.4s ease;
+  text-align: center;
+  border: 2px solid #f8f5f6;
+}
+.promo-box h3 {
+  font-size: 14px; /* MÁS PEQUEÑO */
+  margin: 5px 0;
+  text-transform: uppercase;
+  color: #e7a80a;
+}
+.promo-box p {
+  margin: 8px 0 10px;
+  font-size: 12px; /* MÁS PEQUEÑO */
+  line-height: 1.2;
+}
+.promo-box .price {
+  font-size: 16px;
+  color: #ffd700;
+  text-shadow: 1px 1px 2px #ff0000;
+}
+.promo-box button {
+  width: 100%;
+  padding: 6px; /* MÁS PEQUEÑO */
+  background: #8e6608;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px; /* MÁS PEQUEÑO */
+  transition: 0.3s;
+}
+.promo-box button:hover {
+  background: #ff33a6;
+}
+.promo-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  cursor: pointer;
+  font-size: 12px; /* MÁS PEQUEÑO */
+}
+
+.promo-icon {
+  font-size: 20px; /* ÍCONO MÁS PEQUEÑO */
+  margin-top: 8px;
+  display: block;
+}
+
+/* animación */
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+</style>
+
+
+<script>
+// FUNCIÓN PARA MOSTRAR LA CAJA
+function mostrarPromo() {
+  const promo = document.querySelector('.promo-box');
+  promo.style.display = 'block';
+}
+
+// CUANDO CIERRAN LA CAJA
+document.querySelector('.promo-close').addEventListener('click', () => {
+  document.querySelector('.promo-box').style.display = 'none';
+});
+
+// CADA 3 MINUTOS (180,000 ms) LA VUELVE A MOSTRAR
+setInterval(() => {
+  mostrarPromo();
+}, 180000); // 3 minutos = 180000 ms
+</script>
+
+
+
 <section class="galeria-asimetrica">
   <div class="columna derecha">
     <div class="item">
@@ -1441,7 +1870,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 .decade-buttons button {
-  background-color: #333;
+  background-color: #130328;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -1452,7 +1881,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 .decade-buttons button:hover {
-  background-color: #e63946;
+  background-color: #23090b;
 }
 
 .carrusel {
@@ -1495,7 +1924,6 @@ function mostrarDecada(decada) {
 }
 </script>
 
-
 <section id="testimonios" class="testimonios-section">
   <h2>Testimonios</h2>
 
@@ -1507,16 +1935,14 @@ function mostrarDecada(decada) {
     <div class="carousel-track">
       
       <!-- TESTIMONIO 1 -->
-     <!-- TESTIMONIO 12 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=faces&fit=crop&w=400&q=80">
-  <h3>La Kary</h3>
-  <p class="texto">“¡El mejor movimiento urbano que he apoyado!”</p>
-  <div class="stars">★★★★★</div>
-  <button class="like">👍 Me gusta</button>
-</div>
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=faces&fit=crop&w=400&q=80">
+        <h3>La Kary</h3>
+        <p class="texto">“¡El mejor movimiento urbano que he apoyado!”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
-      <!-- TESTIMONIO 2 -->
       <div class="testimonio-card">
         <img class="foto" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400">
         <h3>Carlos R.</h3>
@@ -1525,7 +1951,6 @@ function mostrarDecada(decada) {
         <button class="like">👍 Me gusta</button>
       </div>
 
-      <!-- TESTIMONIO 3 -->
       <div class="testimonio-card">
         <img class="foto" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400">
         <h3>Maya Soul</h3>
@@ -1534,80 +1959,61 @@ function mostrarDecada(decada) {
         <button class="like">👍 Me gusta</button>
       </div>
 
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400">
+        <h3>Valeria Flow</h3>
+        <p class="texto">“Mostrar mi talento nunca fue tan fácil.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400">
+        <h3>Maya Soul</h3>
+        <p class="texto">“Aquí encontré mi verdadera familia musical.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400">
+        <h3>Neko Beat</h3>
+        <p class="texto">“Beats que elevan el alma.”</p>
+        <div class="stars">★★★★☆</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
-<!-- TESTIMONIO 2 -->
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400">
+        <h3>Leo Street</h3>
+        <p class="texto">“El soundtrack de mi barrio.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400">
+        <h3>Rafa</h3>
+        <p class="texto">“Visuales que derriten las retinas.”</p>
+        <div class="stars">★★★★☆</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
-<!-- TESTIMONIO 4 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400">
-  <h3>Valeria Flow</h3>
-  <p class="texto">“Mostrar mi talento nunca fue tan fácil.”</p>
-  <div class="stars">★★★★★</div>
-  <button class="like">👍 Me gusta</button>
-</div>
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=400">
+        <h3>Toni Bass</h3>
+        <p class="texto">“Desde el bajo hasta el corazón.”</p>
+        <div class="stars">★★★★☆</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
-<!-- TESTIMONIO 5 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400">
-  <h3>Maya Soul</h3>
-  <p class="texto">“Aquí encontré mi verdadera familia musical.”</p>
-  <div class="stars">★★★★★</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-<!-- TESTIMONIO 6 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400">
-  <h3>Neko Beat</h3>
-  <p class="texto">“Beats que elevan el alma.”</p>
-  <div class="stars">★★★★☆</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-<!-- TESTIMONIO 7 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400">
-  <h3>Leo Street</h3>
-  <p class="texto">“El soundtrack de mi barrio.”</p>
-  <div class="stars">★★★★★</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-<!-- TESTIMONIO 8 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400">
-  <h3>Rafa</h3>
-  <p class="texto">“Visuales que derriten las retinas.”</p>
-  <div class="stars">★★★★☆</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-<!-- TESTIMONIO 9 -->
-
-
-<!-- TESTIMONIO 10 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=400">
-  <h3>Toni Bass</h3>
-  <p class="texto">“Desde el bajo hasta el corazón.”</p>
-  <div class="stars">★★★★☆</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-<!-- TESTIMONIO 11 -->
-<div class="testimonio-card">
-  <img class="foto" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400">
-  <h3>Samu</h3>
-  <p class="texto">“Los descubrí y ya soy fan.”</p>
-  <div class="stars">★★★★★</div>
-  <button class="like">👍 Me gusta</button>
-</div>
-
-
-
+      <div class="testimonio-card">
+        <img class="foto" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400">
+        <h3>Samu</h3>
+        <p class="texto">“Los descubrí y ya soy fan.”</p>
+        <div class="stars">★★★★★</div>
+        <button class="like">👍 Me gusta</button>
+      </div>
 
     </div>
   </div>
@@ -1624,18 +2030,18 @@ function mostrarDecada(decada) {
 
 h2 {
   margin-bottom: 40px;
-  color: #ff007a;
+  color: #f0ebeb;
   font-size: 2.3rem;
 }
 
-/* Flechas (PC) */
+/* Flechas PC */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #ff007a;
+  background: #090909;
   border: none;
-  color: black;
+  color: rgb(244, 241, 241);
   padding: 14px;
   border-radius: 50%;
   cursor: pointer;
@@ -1675,7 +2081,7 @@ h2 {
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ff007a;
+  border: 3px solid #0c0c0c;
   margin-bottom: 12px;
 }
 
@@ -1692,16 +2098,21 @@ h2 {
 }
 
 .like {
-  background: #ff007a;
+  background: #faf5f5;
   border: none;
-  color: black;
+  color: rgb(12, 11, 11);
   padding: 8px 14px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
 }
 .like:hover {
-  background: #ff54a6;
+  background: #0c0c0c;
+}
+
+/* 🔵 AZUL OSCURO PARA H3 */
+.testimonios-section h3 {
+  color: #131313;
 }
 </style>
 
@@ -1748,6 +2159,143 @@ function reiniciar(){
 }
 </script>
 
+<footer class="footer-rock">
+  <div class="footer-contenido">
+
+    <!-- LOGO + DESCRIPCIÓN -->
+    <div class="footer-col">
+      <img src="black.png" class="footer-logo" alt="Blackstar Records Logo">
+      <h3>BLACKSTAR RECORDS</h3>
+      <p>Sello discográfico • B / $ GXNG 🇵🇪</p>
+      <p>306 publicaciones • 19,1k seguidores • 542 seguidos</p>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-col">
+      <h4>CONTACTO</h4>
+      <p><strong>Dirección:</strong> Calle Porta 130, Miraflores, Lima 15074</p>
+      <p><strong>Teléfono:</strong> +51 987 654 321</p>
+      <p><strong>Email:</strong> contact@blackstar.records</p>
+
+      <div class="footer-redes">
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">YouTube</a>
+        <a href="#" target="_blank">Spotify</a>
+      </div>
+    </div>
+
+    <!-- MAPA GOOGLE -->
+    <div class="footer-col">
+      <h4>UBICACIÓN</h4>
+      <iframe 
+        class="footer-mapa"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.879868!2d-77.033!3d-12.1207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c83a4bd3056b%3A0x65d87f4c156a6c20!2sCalle%20Porta%20130!5e0!3m2!1ses-419!2spe!4v1234567890" 
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+
+  <p class="footer-copy">© 2025 BLACKSTAR RECORDS – Todos los derechos reservados</p>
+</footer>
+<style>.footer-rock {
+  background: #0a0a0a;
+  padding: 60px 25px 40px;
+  color: #e5e5e5;
+  font-family: "Montserrat", sans-serif;
+  border-top: 3px solid #b10000; /* ROJIZO ROCK */
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+/* COLUMNAS */
+.footer-col {
+  flex: 1 1 300px;
+}
+
+/* LOGO */
+.footer-logo {
+  width: 40px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px #b10000); /* efecto glow rock */
+}
+
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.footer-col h4 {
+  color: #b10000;
+  font-size: 18px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* TEXTO */
+.footer-col p {
+  margin: 8px 0;
+  color: #d0d0d0;
+}
+
+/* REDES */
+.footer-redes a {
+  display: inline-block;
+  margin-right: 12px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.footer-redes a:hover {
+  color: #b10000;
+  border-bottom: 1px solid #b10000;
+}
+
+/* MAPA */
+.footer-mapa {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
+  filter: grayscale(100%) contrast(120%); /* estilo rock */
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  text-align: center;
+  margin-top: 40px;
+  color: #f7f2f2;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-redes a {
+    margin: 0 10px;
+  }
+
+  .footer-logo {
+    margin: auto;
+  }
+}
+</style>
 </body>
 </html>
 
