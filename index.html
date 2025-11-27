@@ -4,9 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peligro Stor</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Blackstar Records</title>
+
 <style>
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,2151 +15,250 @@ body {
   color: #fff;
 }
 
-/* BANNER    https://images.unsplash.com/photo-1446057032654-9d8885db76c6?auto=format&fit=crop&w=600&q=80*/
+/* BANNER */
 .banner {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 100vh;
-  background-image: url('gi.jpeg');
+  background-image: url('logoblachrecods.png');
   background-size: cover;
-  background-position: right center;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-position: center;
+  padding-top: 100px; /* ✔ evita que tape el menú */
 }
 
 /* HEADER */
-header {
+.topbar {
+  width: 100%;
+  padding: 20px 80px;/* ✔ más separación */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 40px;
-}
-
-/* Menú izquierdo */
-.nav-left {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
-.nav-left a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  position: relative;
-  font-size: 14px;
-}
-.nav-left a:hover {
-  color: #e50914;
-}
-
-/* Submenú escritorio */
-.menu-item {
-  position: relative;
-}
-.submenu {
-  display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  color: #000;
-  border-radius: 4px;
-  padding: 10px 0;
-  min-width: 180px;
-}
-.submenu a {
-  display: block;
-  color: #000;
-  padding: 8px 15px;
-  text-decoration: none;
-}
-.submenu a:hover {
-  background-color: #e50914;
-  color: #fff;
-}
-.menu-item:hover .submenu {
-  display: block;
+  top: 0;
+  z-index: 2000;
+  color: white;
 }
 
-/* Logo centro */
-.logo-container {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
-}
-.logo-container svg {
-  width: 140px;
-  height: 140px;
-}
-.logo-container text {
-  fill: white;
-  font-family: 'Arial Black', sans-serif;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-.logo-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* Derecha */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.icon {
+.logo-title {
   font-size: 22px;
-  cursor: pointer;
-}
-
-/* Texto inferior */
-.banner-text {
-  padding: 50px;
-}
-.banner-text h4 {
-  font-size: 16px;
-  margin: 0;
-  letter-spacing: 2px;
-}
-.banner-text h1 {
-  font-size: 48px;
-  margin: 10px 0;
-  text-transform: uppercase;
   font-weight: bold;
-}
-.banner-text p {
-  font-style: italic;
-  font-size: 16px;
-  margin-top: 10px;
+  text-shadow: 0 0 8px black;
 }
 
-/* Hamburguesa solo móvil */
+/* MENU PC */
+.menu-links a {
+  color: white;
+  margin-left: 35px; /* ✔ mejor espaciado */
+  text-decoration: none;
+  font-size: 15px;
+  text-shadow: 0 0 6px black;
+}
+
+/* HAMBURGER */
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 35px;
   cursor: pointer;
+  color: white;
+  text-shadow: 0 0 8px black;
 }
 
-/* Menú móvil */
+/* MENU MOBILE */
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  background: rgba(0, 0, 0, 0.95);
-  width: 75%;
-  height: 100%;
-  padding: 30px;
-  z-index: 1000;
-  overflow-y: auto;
-  transition: left 0.4s ease;
-}
-.mobile-menu.active {
-  left: 0;
-}
-
-/* Botón de cierre */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-/* Estilo de enlaces en menú móvil */
-.mobile-menu a,
-.mobile-menu .mobile-title {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  margin: 15px 0;
-  font-weight: bold;
-  cursor: pointer;
-}
-.mobile-submenu {
   display: none;
-  padding-left: 15px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  padding: 15px;
+  border-radius: 10px;
 }
-.mobile-submenu a {
-  font-weight: normal;
-  margin: 8px 0;
+
+.mobile-menu a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav-left {
+  .menu-links {
     display: none;
   }
   .hamburger {
     display: block;
   }
-  header {
-    padding: 10px 20px;
-  }
-  .logo img {
-    height: 50px;
-  }
-  .banner-text {
-    padding: 20px;
-  }
 }
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-left: -40px; /* 🔥 Acerca las redes al logo */
-}
-
-.social-icon svg {
-  transition: transform 0.3s ease, opacity 0.3s;
-}
-
-.social-icon:hover svg {
-  transform: scale(1.15);
-  opacity: 0.8;
-}
-
 </style>
 </head>
+
 <body>
 
 <section class="banner">
-  <header>
+
+  <header class="topbar">
+    <div class="logo-title">BLACKSTAR RECORDS</div>
+
     <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-    <nav class="nav-left">
-      <div class="menu-item">
-        <a href="#">MÚSICA ▼</a>
-        <div class="submenu">
-          <a href="vinilo.html">Vinilo</a>
-          <a href="cd.html">CD</a>
-
-           <a href="artista.html">artistas</a>
-        
-        </div>
-      </div>
-      
-      <div class="menu-item">
-        <a href="#">MERCANCÍA ▼</a>
-        <div class="submenu">
-          <a href="cd.html">Discos de artista</a>
-          <a href="polos.html">Ropa</a>
-            <a href="artista.html">artistas</a>
-        
-        </div>
-      </div>
-
-      
-      
-      <a href="#">ARTISTAS</a>
+    <nav class="menu-links">
+      <a href="#">Inicio</a>
+      <a href="#">Nuestro sello</a>
+      <a href="#">Artistas</a>
+      <a href="#">Contacto</a>
     </nav>
-
-    <div class="logo-container">
-      <svg viewBox="0 0 200 200">
-        <path id="top-arc" d="M40,112 A60,60 0 0,1 160,112" fill="transparent"/>
-        <text><textPath href="#top-arc" startOffset="50%" text-anchor="middle">BLACKSTAR</textPath></text>
-        <path id="bottom-arc" d="M40,105 A60,60 0 0,0 160,105" fill="transparent"/>
-        <text><textPath href="#bottom-arc" startOffset="50%" text-anchor="middle">RECORDS</textPath></text>
-      </svg>
-      <img src="black.png" alt="Peligro Stor" class="logo-img">
-    </div>
-
-    <div class="nav-right">
-  <a href="#" class="social-icon" title="Facebook">
-    <svg width="26" height="26" fill="#fff" viewBox="0 0 24 24">
-      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.79c0-2.33 1.38-3.62 3.52-3.62 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18v7.03C18.34 21.2 22 17.06 22 12.07z"/>
-    </svg>
-  </a>
-
-  <a href="#" class="social-icon" title="Instagram">
-    <svg width="26" height="26" fill="#fff" viewBox="0 0 24 24">
-      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3.5A5.5 5.5 0 1 0 17.5 13 5.51 5.51 0 0 0 12 7.5zm0 9A3.5 3.5 0 1 1 15.5 13 3.5 3.5 0 0 1 12 16.5zm4.25-9.88a1.12 1.12 0 1 1-1.12-1.12 1.12 1.12 0 0 1 1.12 1.12z"/>
-    </svg>
-  </a>
-
-  <a href="#" class="social-icon" title="YouTube">
-    <svg width="30" height="30" fill="#fff" viewBox="0 0 24 24">
-      <path d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.7 2.5 12 2.5 12 2.5h-.1s-4.7 0-8.1.3c-.5.1-1.5.1-2.4 1C.7 4.5.5 6.2.5 6.2S0 8.3 0 10.4v1.9c0 2.1.5 4.2.5 4.2s.2 1.7.9 2.4c.9.9 2.1.9 2.7 1C7.3 20 12 20 12 20s4.7 0 8.1-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4s.5-2.1.5-4.2v-1.9c0-2.1-.5-4.2-.5-4.2zM9.7 14.9V8.8l6.1 3.1-6.1 3z"/>
-    </svg>
-  </a>
-</div>
-
   </header>
 
-  <div class="banner-text">
-    <h4>NOVEDADES DE LA SERIE DEFINITIVE SOUND</h4>
-    <h1>black start records</h1>
-    <p>compra la colección ahora</p>
+  <!-- MENU MOVIL -->
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Nuestro sello</a>
+    <a href="#">Artistas</a>
+    <a href="#">Contacto</a>
   </div>
+
 </section>
 
-<!-- Menú móvil  
-
-      <a href="#">FIRMADOS Y EXCLUSIVOS</a>
-   <a href="#">Posters</a>
-          <a href="#">Accesorios</a>
-          <a href="#">Coleccionables</a>
-  <a href="#">Casetes</a>
-          <a href="#">Bandas Sonoras</a>
-          <a href="#">7 Pulgadas</a>
-          <a href="#">Comprar Toda la Música</a>
-<span class="icon">🔍</span>
-      <span class="icon">🛒</span>-->
-<div id="mobileMenu" class="mobile-menu">
-  <span class="close-btn" onclick="toggleMenu()">✖</span>
-
-  <div class="mobile-item">
-    <a class="mobile-title" onclick="toggleSubmenu(this)">MÚSICA ▼</a>
-    <div class="mobile-submenu">
-      <a href="vinilo.html">Vinilo</a>
-      <a href="cd.html">CD</a>
-    
-    </div>
-  </div>
-
-  <div class="mobile-item">
-    <a class="mobile-title" onclick="toggleSubmenu(this)">MERCANCÍA ▼</a>
-    <div class="mobile-submenu">
-      <a href="cd.html">Discos de artista</a>
-      <a href="polos.html">Ropa</a>
-     
-    </div>
-  </div>
-
-  <a href="#">FIRMADOS Y EXCLUSIVOS</a>
-  <a href="#">ARTISTAS</a>
-</div>
-
 <script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
-
-function toggleSubmenu(el) {
-  const submenu = el.nextElementSibling;
-  submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+function toggleMenu(){
+  var menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 </script>
-</body>
+<section class="section-info">
+  <div class="info-container">
 
-
-
-
-<!-- SECCIÓN DE ARTISTAS -->
-<section id="artists" class="artists-section">
-  <h2>Nuestros Artistas</h2>
-  <p class="artists-subtitle">Descubre los talentos de Peligro Store</p>
-
-  <div class="slider-container">
-    <div class="artists-slider">
-      <!-- ARTISTA 1 -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Luna Vibes">
-        <h4>Luna Vibes</h4>
-        <p>Pop Alternativo</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <!-- ARTISTA 2 -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1504595403659-9088ce801e29?auto=format&fit=crop&w=600&q=80" alt="El Rayo">
-        <h4>El Rayo</h4>
-        <p>Trap Latino</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <!-- ARTISTA 3 -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Maya Soul">
-        <h4>Maya Soul</h4>
-        <p>R&B / Soul</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <!-- ARTISTA 4 -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="Dante Crew">
-        <h4>Dante Crew</h4>
-        <p>Rap / Hip Hop</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <!-- ARTISTA 5 -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80" alt="Zeta Flow">
-        <h4>El Rayo</h4>
-        <p>Electrónica / Indie</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <!-- NUEVOS 6 ARTISTAS -->
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Neo Wave">
-        <h4>Neo Wave</h4>
-        <p>Electro Pop</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=600&q=80" alt="Rosa Flame">
-        <h4>Rosa Flame</h4>
-        <p>Pop Urbano</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=600&q=80" alt="Drako">
-        <h4>El Rayo</h4>
-        <p>Trap / Drill</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80" alt="Mika Blue">
-        <h4>Mika Blue</h4>
-        <p>Indie Pop</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80" alt="Shadow X">
-        <h4>Shadow X</h4>
-        <p>Hip Hop</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
-
-      <div class="artist-card">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80" alt="Kira Moon">
-        <h4>Kira Moon</h4>
-        <p>Reggaeton</p>
-        <div class="artist-socials">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
+    <div class="info-text">
+      <h2>BLACKSTAR RECORDS</h2>
+      <p>es una compañía dedicada al entretenimiento 
+y a la creación de contenido musical en general. Nos enfocamos 
+en el desarrollo y producción de obras musicales, la construcción 
+de identidad artística, la divulgación y promoción de proyectos, 
+así como el posicionamiento y marketing digital de artistas y 
+agrupaciones de diversos géneros.</p>
     </div>
+
+    <div class="info-img">
+      <img src="2.png" alt="Blackstar Records">
+    </div>
+
   </div>
-  
-
-  <div class="slider-nav">
-    <button class="prev">&#10094;</button>
-    <div class="slider-dots"></div>
-    <button class="next">&#10095;</button>
-  </div>
-
-<button class="view-more">Ver más artistas</button>
-
-<script>
-  document.querySelector('.view-more').addEventListener('click', function() {
-    window.location.href = 'artista.html';
-  });
-</script>
 </section>
-
-<style>
-.artists-section {
- background-color: #000;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+<style>.section-info {
+ background-image: url('56.png'); /* tu56 imagen */
   color: #fff;
-  padding: 80px 5%;
-  text-align: center;
+  padding: 100px 0;
 }
 
-.artists-section h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: var(--accent, #bda5ac);
-}
-
-.artists-subtitle {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 40px;
-}
-
-/* Slider */
-.slider-container {
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-
-
-.artist-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
-}
-
-
-.artists-slider {
+.info-container {
   display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
-}
-
-.artist-card {
-  min-width: 250px;
-  max-width: 250px;
-  background: #1b1b1b;
-  border-radius: 14px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
-  height: 400px; /* altura uniforme para todas las tarjetas */
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
 }
 
-.artist-card img {
-  width: 100%;
-  height: 220px; /* altura fija */
-  object-fit: cover; /* cubre el contenedor sin deformarse */
-  border-radius: 10px;
+.info-text {
+  flex: 1;
+  text-align: left;
+}
+
+.info-text h2 {
+  font-size: 40px;
+  font-weight: bold;
   margin-bottom: 15px;
 }
 
-.artist-card h3 {
-  font-size: 1.2rem;
-  margin: 10px 0 4px;
-  text-align: center;
-}
-
-.artist-card p {
-  color: #aaa;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-.artist-socials {
-  margin-top: auto; /* empuja los iconos al final */
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-
-.artist-socials a {
-  color: #fff;
-  font-size: 1.3rem;
-  transition: color 0.3s;
-}
-
-.artist-socials a:hover {
-  color: var(--accent, #0c0809);
-}
-
-/* Dots */
-.slider-dots {
-  margin: 0 10px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.slider-dots span {
-  width: 12px;
-  height: 12px;
-  background: #555;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.slider-dots span.active {
-  background: var(--accent, #e2e2e4);
-}
-
-/* Flechas */
-.slider-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15px;
-  gap: 10px;
-}
-
-.slider-nav button {
-  background: var(--accent, #20070e);
-  border: none;
-  color: #fff;
+.info-text p {
   font-size: 18px;
-  padding: 6px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
+  line-height: 1.5;
 }
 
-.slider-nav button:hover {
-  background: #474803;
-}
-
-/* Botón */
-.view-more {
-  margin-top: 40px;
-  background: var(--accent, #e12b5f);
-  color: #fff;
-  border: none;
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.view-more:hover {
-  background: #ff4b7d;
-}
-</style>
-
-<script>
-const slider = document.querySelector('.artists-slider');
-const dotsContainer = document.querySelector('.slider-dots');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const slides = Array.from(slider.children);
-let currentIndex = 0;
-
-// Número de slides visibles a la vez
-const visibleSlides = 5;
-
-// Número de puntos que quieres mostrar
-const totalDots = slides.length - visibleSlides + 1; // 11 - 5 + 1 = 7
-
-for (let i = 0; i < totalDots; i++) {
-  const dot = document.createElement('span');
-  if (i === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => {
-    currentIndex = i;
-    updateSlider();
-  });
-  dotsContainer.appendChild(dot);
-}
-
-
-function updateSlider() {
-  const slideWidth = slides[0].offsetWidth + 20; // ancho + gap
-  // Limitar el índice máximo para que no deje espacio vacío
-  const maxIndex = slides.length - visibleSlides;
-  const indexToUse = Math.min(currentIndex, maxIndex);
-  slider.style.transform = `translateX(-${indexToUse * slideWidth}px)`;
-
-  // Actualizar puntos
-  dotsContainer.querySelectorAll('span').forEach((d, i) => {
-    d.classList.toggle('active', i === currentIndex);
-  });
-}
-
-// Flechas
-prevBtn.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateSlider();
-  }
-});
-
-nextBtn.addEventListener('click', () => {
-  const maxIndex = slides.length - visibleSlides;
-  if (currentIndex < maxIndex) {
-    currentIndex++;
-    updateSlider();
-  }
-});
-
-// Auto slide
-setInterval(() => {
-  const maxIndex = slides.length - visibleSlides;
-  if (currentIndex < maxIndex) {
-    currentIndex++;
-  } else {
-    currentIndex = 0;
-  }
-  updateSlider();
-}, 5000);
-
-
-</script>
-
-<!-- noevdades -->
-<section class="carrusel-full-seccion">
-  <h4 class="carrusel-full-titulo">NUESTROS PRODUCTOS </h4>
-  <p class="carrusel-full-subtitulo">Explora nuestras imágenes destacadas</p>
-
-  <div class="carrusel-full">
-    <button class="flecha-full izquierda-full">&#10094;</button>
-
-    <div class="carrusel-full-items">
-      <div class="item-full">
-        <img src="11.jpg" alt="Imagen 1">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Bolso Cuero Marrón</h3>
-        <p class="descripcion-full">Elegante diseño artesanal</p>
-        <p class="precio-full">S/ 120.00</p>
-      </div>
-
-      <div class="item-full">
-        <img src="12.jpg" alt="Imagen 2">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Cartera Urbana</h3>
-        <p class="descripcion-full">Perfecta para uso diario</p>
-        <p class="precio-full">S/ 95.00</p>
-      </div>
-
-      <div class="item-full">
-        <img src="13.jpg" alt="Imagen 3">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Correa Clásica</h3>
-        <p class="descripcion-full">Cuero sintético resistente</p>
-        <p class="precio-full">S/ 45.00</p>
-      </div>
-
-      <div class="item-full">
-        <img src="14.jpg" alt="Imagen 4">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Mochila Casual</h3>
-        <p class="descripcion-full">Comodidad y estilo</p>
-        <p class="precio-full">S/ 150.00</p>
-      </div>
-
-      <div class="item-full">
-        <img src="15.jpg" alt="Imagen 5">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Billetera Slim</h3>
-        <p class="descripcion-full">Compacta y moderna</p>
-        <p class="precio-full">S/ 40.00</p>
-      </div>
-
-      <div class="item-full">
-        <img src="16.jpg" alt="Imagen 6">
-        <a href="#" class="btn-pedido-full">Hacer pedido</a>
-        <h3>Maletín Ejecutivo</h3>
-        <p class="descripcion-full">Para profesionales elegantes</p>
-        <p class="precio-full">S/ 180.00</p>
-      </div>
-    </div>
-
-    <button class="flecha-full derecha-full">&#10095;</button>
-  </div>
-</section>
-
-<style>
-.carrusel-full-seccion {
-  width: 100%;
-  padding: 60px 0;
-  background-color: #fff;
-  text-align: center;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-.carrusel-full-titulo {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.carrusel-full-subtitulo {
-  color: #555;
-  margin-bottom: 40px;
-}
-
-/* Carrusel principal */
-.carrusel-full {
-  position: relative;
+.info-img {
+  flex: 1;
   display: flex;
-  align-items: center;
-  overflow: hidden;
-  width: calc(100% - 1.6cm);
-  margin: 0 auto;
-  padding: 0;
-}
-
-.carrusel-full-items {
-  display: flex;
-  width: 100%;
-  overflow-x: hidden;
-  gap: 20px;
-}
-
-.item-full {
-  flex: 0 0 calc((100% - 60px) / 4);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  position: relative;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.item-full:hover {
-  transform: translateY(-6px);
-}
-
-.item-full img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px 12px 0 0;
-}
-
-/* Botón hacer pedido */
-.btn-pedido-full {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #2d059d;
-  color: #fff;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.3s;
-  z-index: 2;
-}
-
-.btn-pedido-full:hover {
-  background: #d80040;
-}
-
-/* Texto debajo de imagen */
-.item-full h3 {
-  font-size: 1rem;
-  margin: 10px 0 4px;
-  color: #222;
-}
-
-.descripcion-full {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 6px;
-}
-
-.precio-full {
-  font-weight: bold;
-  color: #111;
-  margin-bottom: 10px;
-}
-
-/* Flechas */
-.flecha-full {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-image: url('https://unsplash.com/es/fotos/disco-de-vinilo-en-tocadiscos-de-vinilo-tOurUz3aMu0');
-  color: #0f0b0b;
-  font-size: 1.8rem;
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  border: none;
-  z-index: 10;
 }
 
-.izquierda-full { left: 10px; }
-.derecha-full { right: 10px; }
+.info-img img {
+  width: 100%;
+  max-width: 450px;
+}
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .item-full { flex: 0 0 calc((100% - 20px) / 2); }
-
-  .btn-pedido-full {
-    top: auto;
-    right: auto;
-    position: static;
-    margin-top: 10px;
-    display: inline-block;
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+    text-align: center;
   }
-}
 
-@media (max-width: 600px) {
-  .item-full { flex: 0 0 100%; }
-
-  .btn-pedido-full {
-    position: static;
-    display: inline-block;
-    margin-top: 10px;
+  .info-img img {
+    max-width: 300px;
   }
 }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const carrusel = document.querySelector('.carrusel-full-items');
-  const items = document.querySelectorAll('.carrusel-full-items .item-full');
-  const derecha = document.querySelector('.derecha-full');
-  const izquierda = document.querySelector('.izquierda-full');
-  let index = 0;
-  const total = items.length;
+<!-- ÚLTIMOS LANZAMIENTOS -->
+<section class="lanzamientos">
 
-  function obtenerVisibles() {
-    if (window.innerWidth <= 600) return 1;
-    if (window.innerWidth <= 1024) return 2;
-    return 4;
-  }
+  <h2>ÚLTIMOS LANZAMIENTOS</h2>
 
-  function moverCarrusel() {
-    const itemWidth = items[0].offsetWidth + 20;
-    carrusel.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
-  }
-
-  derecha.addEventListener('click', () => {
-    const visibles = obtenerVisibles();
-    if (index < total - visibles) {
-      index++;
-      moverCarrusel();
-    }
-  });
-
-  izquierda.addEventListener('click', () => {
-    if (index > 0) {
-      index--;
-      moverCarrusel();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    index = 0;
-    moverCarrusel();
-  });
-});
-</script>
-
-
-<!--novedades -->
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
-    color: #222;
-  }
-
-  /* 🔹 Sección general */
-  .capitol-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 5%;
-    gap: 50px;
-  }
-
-  /* 🔴 Cuadro rojo con imagen */
-  .image-box {
-    background-color: #300b0b;
-    width: 50%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .image-box img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: opacity 1s ease-in-out;
-    opacity: 0;
-  }
-
-  .image-box img.active {
-    opacity: 1;
-    position: relative;
-  }
-
-  /* 🔹 Texto */
-  .text-box {
-    width: 50%;
-  }
-
-  .text-box h2 {
-    font-size: 1.2rem;
-    color: #250707;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-
-  .text-box h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-
-  .text-box p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 25px;
-  }
-
-  .text-box a {
-    display: inline-block;
-    text-decoration: none;
-    background: #1e0c0c;
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-
-  .text-box a:hover {
-    background: rgb(26, 7, 7);
-  }
-
-  /* 🔄 Sección intercalada (imagen izquierda / derecha) */
-  .reverse {
-    flex-direction: row-reverse;
-  }
-
-  /* 📱 Versión celular */
-  @media (max-width: 900px) {
-    .capitol-section {
-      flex-direction: column;
-      padding: 40px 20px;
-    }
-
-    .image-box {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-    .image-box img {
-      position: relative;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .text-box {
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .text-box h1 {
-      font-size: 2rem;
-    }
-
-    .text-box p {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-<style>
-
-
-  .seccion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
- 
- margin: 0;           /* elimina espacio exterior */
-  padding: 0;   
-
-  gap: 0;            /* 🔹 elimina el espacio entre imagen y texto */
-  }
-
-  .imagen-cuadro {
+  <div class="grid-lanzamientos">
+    <img src="45.png" alt="">
   
-    padding: 30px;
-    border-radius: 10px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .imagen-cuadro img {
-   width: 700px;   /* controla la anchura */
-  height: 800px;  /* controla la altura */
-  object-fit: cover; /* mantiene proporción visual y evita deformación */
-  border-radius: 10px; /* opcional, bordes redondeados */
   
-
-  transition: opacity 0.02s ease-in-out;  
-
-
-}
-
-  .texto {
-    flex: 1;
-  padding: 0 8%;  /* 🔹 agrega margen solo al texto */
-  }
-
-  .texto h3 {
-    font-size: 32px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-
-  .texto p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #010101;
-  }
-
-  .texto button {
-    background-color: #7b1a1a;
-    color: #fff;
-    border: none;
-    padding: 12px 28px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  /* Intercalado en escritorio */
-  .seccion:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  /* ✅ Corrección para móvil */
-  @media (max-width: 768px) {
-    .seccion {
-      flex-direction: column !important; /* fuerza imagen arriba, texto abajo */
-      text-align: center;
-    }
-    .imagen-cuadro, .texto {
-      max-width: 100%;
-    }
-    .imagen-cuadro img {
-      width: 100%;
-      height: 250px;
-    }
-
-    .texto {
-  flex: 1;
-    padding: 20px 8%;   /* 🔹 más espacio alrededor del texto */
-    margin-top: 15px;   /* 🔹 separación entre la imagen y el texto */
-  }
-  }
-</style>
-</head>
-<body>
-
-<section class="seccion">
-  <div class="imagen-cuadro">
-    <img src="10.jpg" alt="Imagen 1">
   </div>
-  <div class="texto">
-    <h3>TROYE SIVAN — EN UN SUEÑO 5º ANIVERSARIO</h3>
-    <p>Celebrando el quinto aniversario de un álbum icónico lleno de emociones y estilo contemporáneo.</p>
-    <button>COMERCIO</button>
-  </div>
+
 </section>
 
-<section class="seccion">
-  <div class="imagen-cuadro">
-    <img src="11.jpg" alt="Imagen 2">
-  </div>
-  <div class="texto">
-    <h3>LANZAMIENTO — NUEVAS COLABORACIONES</h3>
-    <p>Explora las nuevas colaboraciones exclusivas con artistas emergentes de la escena global.</p>
-    <button>DESCUBRIR</button>
-  </div>
-</section>
 
-<section class="seccion">
-  <div class="imagen-cuadro">
-    <img src="12.jpg" alt="Imagen 3">
-  </div>
-  <div class="texto">
-    <h3>EXPERIENCIA — EL SONIDO DE LA PASIÓN</h3>
-    <p>Sumérgete en la intensidad de la música con un sonido que marca tendencia en cada nota.</p>
-    <button>EXPLORAR</button>
-  </div>
-</section>
-<script>
-  // ✅ Cambio automático de imagen cada 4 segundos sin parpadeo
-  const imagenes = [
-    ["10.jpg", "13.jpg"],
-    ["11.jpg", "14.jpg"],
-    ["12.jpg", "15.jpg"]
-  ];
 
-  const cuadros = document.querySelectorAll(".imagen-cuadro img");
-  let index = 0;
-
-  // 🔹 Precarga todas las imágenes antes de usarlas
-  imagenes.flat().forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-
-  setInterval(() => {
-    index = (index + 1) % 2;
-
-    cuadros.forEach((img, i) => {
-      // Primero baja la opacidad suavemente
-      img.style.opacity = 0.3;
-
-      setTimeout(() => {
-        // Cambia la imagen cuando ya se está difuminando
-        img.src = imagenes[i][index];
-      }, 400); // cambia mientras desaparece (no después)
-
-      setTimeout(() => {
-        // Vuelve a aparecer la nueva imagen
-        img.style.opacity = 1;
-      }, 600);
-    });
-  }, 4000);
-</script>
-<style>h3 {
-  color: #000; /* negro */
-}</style>
-<div class="promo-box">
-  <div class="promo-close">✕</div>
-
-  <h3>OFERTA ROCKERA</h3>
-  <p>SOLO POR ESTA SEMANA DESCUENTO ESPECIAL EN TU SEGUNDO DISCO<br><strong class="price">S/1000</strong></p>
-
-  <button>Comprar ahora</button>
-
-  <div class="promo-icon">🎸💿</div>
-</div>
-
-<style>
-.promo-box {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1a1a1a;
-  color: #fff;
-  width: 160px; /* MÁS PEQUEÑO */
-  padding: 9px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-  font-family: 'Arial Black', Arial, sans-serif;
-  z-index: 9999;
-  animation: pop 0.4s ease;
+<style>.lanzamientos {
+  background-image: url('3.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 80px 0;
   text-align: center;
-  border: 2px solid #f8f5f6;
-}
-.promo-box h3 {
-  font-size: 14px; /* MÁS PEQUEÑO */
-  margin: 5px 0;
-  text-transform: uppercase;
-  color: #e7a80a;
-}
-.promo-box p {
-  margin: 8px 0 10px;
-  font-size: 12px; /* MÁS PEQUEÑO */
-  line-height: 1.2;
-}
-.promo-box .price {
-  font-size: 16px;
-  color: #ffd700;
-  text-shadow: 1px 1px 2px #ff0000;
-}
-.promo-box button {
-  width: 100%;
-  padding: 6px; /* MÁS PEQUEÑO */
-  background: #8e6608;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 12px; /* MÁS PEQUEÑO */
-  transition: 0.3s;
-}
-.promo-box button:hover {
-  background: #ff33a6;
-}
-.promo-close {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  cursor: pointer;
-  font-size: 12px; /* MÁS PEQUEÑO */
-}
-
-.promo-icon {
-  font-size: 20px; /* ÍCONO MÁS PEQUEÑO */
-  margin-top: 8px;
-  display: block;
-}
-
-/* animación */
-@keyframes pop {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-</style>
-
-
-<script>
-// FUNCIÓN PARA MOSTRAR LA CAJA
-function mostrarPromo() {
-  const promo = document.querySelector('.promo-box');
-  promo.style.display = 'block';
-}
-
-// CUANDO CIERRAN LA CAJA
-document.querySelector('.promo-close').addEventListener('click', () => {
-  document.querySelector('.promo-box').style.display = 'none';
-});
-
-// CADA 3 MINUTOS (180,000 ms) LA VUELVE A MOSTRAR
-setInterval(() => {
-  mostrarPromo();
-}, 180000); // 3 minutos = 180000 ms
-</script>
-
-
-
-<section class="galeria-asimetrica">
-  <div class="columna derecha">
-    <div class="item">
-      <img src="17.jpg" alt="Imagen pequeña 1">
-      <div class="info">ARTISTA 1</div>
-    </div>
-    <div class="item">
-      <img src="20.jpg" alt="Imagen pequeña 2">
-      <div class="info">ARTISTA 2</div>
-    </div>
-    <div class="item">
-      <img src="21.jpg" alt="Imagen pequeña 3">
-      <div class="info">ARTISTA 3</div>
-    </div>
-    <div class="item">
-      <img src="13.jpg" alt="Imagen pequeña 4">
-      <div class="info">ARTISTA 4</div>
-    </div>
-  </div>
-
-  <div class="columna izquierda">
-    <div class="item grande">
-      <img src="bd.jpg" alt="Imagen grande">
-      <div class="info">ARTISTA PRINCIPAL<br><span>GRANDE</span></div>
-    </div>
-  </div>
-</section>
-
-<style>
-.galeria-asimetrica {
-  display: flex;
-  flex-direction: row-reverse; /* 🔹 invierte el orden: imagen grande a la derecha */
-  gap: 10px;
-  background-color: #f6f0f0;
-  color: #fff;
-  justify-content: center;
-  align-items: stretch;
-  padding: 20px;
-  overflow: hidden;
-}
-
-/* Columna derecha (imagen grande) */
-.izquierda {
-  flex: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.izquierda .grande {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  width: 800px;
-  height: 700px;
-  max-width: 100%;
-}
-
-.izquierda img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.izquierda .grande:hover img {
-  transform: scale(1.05);
-  filter: brightness(1);
-}
-
-/* Columna izquierda (4 imágenes pequeñas en cuadrícula 2x2) */
-.derecha {
-  flex: 1.5;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.derecha .item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.derecha img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.derecha .item:hover img {
-  transform: scale(1.1);
-  filter: brightness(1);
-}
-
-/* Texto sobre las imágenes */
-.info {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-
-.info span {
-  display: block;
-  font-size: 1.3rem;
-}
-
-/* --- RESPONSIVO --- */
-@media (max-width: 900px) {
-  .galeria-asimetrica {
-    flex-direction: column; /* 🔹 En celular, vuelve a orden normal (vertical) */
-    align-items: center;
-  }
-
-  .izquierda {
-    order: 1;
-  }
-
-  .derecha {
-    order: 2;
-  }
-
-  .izquierda .grande {
-    width: 95%;
-    height: auto;
-    max-height: 300px;
-  }
-
-  .derecha {
-    width: 90%;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-  }
-
-  .derecha .item {
-    height: 150px;
-  }
-
-  .info {
-    font-size: 0.8rem;
-  }
-}
-
-/* --- CELULARES PEQUEÑOS --- */
-@media (max-width: 480px) {
-  .izquierda .grande {
-    max-height: 220px;
-  }
-
-  .derecha .item {
-    height: 200px;
-     width: 160px;
-  }
-
-  img {
-    box-shadow: none !important;
-    -webkit-box-reflect: none !important;
-  }
-}
-</style>
-<!-- 🔥 Banner tipo carrusel -->
-<!-- 🔥 Banner tipo slider -->
-<!-- ✅ BANNER SLIDER -->
-<!-- ✅ BANNER SLIDER COMPLETO Y FUNCIONAL -->
-<section class="banner-slider">
-  <div class="slider">
-
-    <div class="slide active">
-      <img src="8.18.jpg" alt="Banner 1">
-      <div class="texto-banner">
-        <h2>PELIGRO STORE</h2>
-        <p>Compra la colección ahora</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="bd16.jpg" alt="Banner 2">
-      <div class="texto-banner">
-        <h2>EDICIÓN LIMITADA</h2>
-        <p>Descubre los nuevos diseños</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="20.jpg" alt="Banner 3">
-      <div class="texto-banner">
-        <h2>EXCLUSIVO ONLINE</h2>
-        <p>Encuentra tu estilo</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Flechas (solo PC) -->
-  <button class="flecha-banner izquierda">❮</button>
-  <button class="flecha-banner derecha">❯</button>
-
-  <!-- Rayitas -->
-  <div class="puntos"></div>
-</section>
-
-
-<style>
-/* ✅ Contenedor principal */
-.banner-slider {
-  width: 100%;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ✅ Slides */
-.slide { 
-  display: none; 
-  position: relative; 
-}
-.slide.active { display: block; }
-
-/* ✅ Imágenes de tamaño real */
-/* ✅ Tamaño controlado SOLO en PC */
-.slide img {
-  width: 1500px;   /* 👉 puedes cambiarlo */
-  height: 700px;   /* 👉 puedes cambiarlo */
-  object-fit: cover; /* Mantiene proporción y llena el espacio */
-  margin: 0 auto;  /* Centrado */
-  display: block;
-}
-
-
-/* ✅ Texto centrado */
-.texto-banner {
-  position: absolute;
-  bottom: 10%;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  text-shadow: 0px 0px 8px #000;
-  font-weight: bold;
-}
-
-/* ✅ Flechas SOLO PC */
-.flecha-banner {
-  display: block;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 35px;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 6px 14px;
-  z-index: 20;
-  border-radius: 6px;
-}
-.flecha-banner.izquierda { left: 10px; }
-.flecha-banner.derecha { right: 10px; }
-
-/* ✅ Indicadores rayitas */
-.puntos {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-}
-.puntos span {
-  width: 22px;
-  height: 5px;
-  background: rgba(255,255,255,0.5);
-  display: inline-block;
-  margin: 0 4px;
-  border-radius: 3px;
-}
-.puntos .activo {
-  background: #fff;
-}
-
-/* ✅ Celular */
-@media(max-width: 768px) {
-  .banner-slider {
-    height:350px; /* 🔥 Altura más pequeña para celular */
-  }
-
-  .slide img {
-    width: 380px;
-    height:350px;;
-    object-fit: cover;
-  }
-
-
-  .flecha-banner {
-    display: none;
-  }
-}
-</style>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelectorAll(".slide");
-  const sig = document.querySelector(".flecha-banner.derecha");
-  const ant = document.querySelector(".flecha-banner.izquierda");
-  const puntosContainer = document.querySelector(".puntos");
-
-  let index = 0;
-
-  slides.forEach((_, i) => {
-    const punto = document.createElement("span");
-    punto.addEventListener("click", () => {
-      index = i;
-      showSlide();
-    });
-    puntosContainer.appendChild(punto);
-  });
-
-  const puntos = document.querySelectorAll(".puntos span");
-
-  function showSlide() {
-    slides.forEach(s => s.classList.remove("active"));
-    puntos.forEach(p => p.classList.remove("activo"));
-
-    slides[index].classList.add("active");
-    puntos[index].classList.add("activo");
-  }
-
-  sig?.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    showSlide();
-  });
-
-  ant?.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide();
-  });
-
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    showSlide();
-  }, 5000);
-
-  showSlide();
-});
-</script>
-
-
-
-<section class="shop-by-decades">
-  <h2>Shop by Decades</h2>
-  <div class="decade-buttons">
-    <button onclick="mostrarDecada('1970')">1970s</button>
-    <button onclick="mostrarDecada('1980')">1980s</button>
-    <button onclick="mostrarDecada('1990')">1990s</button>
-    <button onclick="mostrarDecada('2000')">2000s</button>
-    <button onclick="mostrarDecada('2010')">2010s</button>
-    <button onclick="mostrarDecada('2020')">2020s</button>
-  </div>
-
-  <div class="galeria-decadas">
-    <!-- 1970 -->
-    <div class="grupo" id="decada-1970">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-           <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <!-- 1980 -->
-    <div class="grupo" id="decada-1980" style="display:none;">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <!-- 1990 -->
-    <div class="grupo" id="decada-1990" style="display:none;">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <!-- 2000 -->
-    <div class="grupo" id="decada-2000" style="display:none;">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <!-- 2010 -->
-    <div class="grupo" id="decada-2010" style="display:none;">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="15.jpg" alt="">
-          <img src="18.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-
-    <!-- 2020 -->
-    <div class="grupo" id="decada-2020" style="display:none;">
-      <div class="carrusel">
-        <div class="imagenes">
-          <img src="3LOGO.png" alt="">
-          <img src="bd.jpg" alt="">
-          <img src="12.jpg" alt="">
-          <img src="19.jpg" alt="">
-          <img src="6.jpg" alt="">
-          <img src="11.jpg" alt="">
-          <img src="21.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-.shop-by-decades {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #f2eaea;
-}
-
-.shop-by-decades h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  color: #222;
-}
-
-.decade-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.decade-buttons button {
-  background-color: #130328;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 8px;
 }
 
-.decade-buttons button:hover {
-  background-color: #23090b;
-}
-
-.carrusel {
-  width: 100%;
-  overflow: hidden;
- 
-  max-width: 2000px;
-  margin: 0 auto;
-}
-
-.carrusel .imagenes {
-  display: flex;
-  animation: deslizar 20s linear infinite;
-}
-
-.carrusel img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin: 0 10px;
-}
-
-@keyframes deslizar {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
-
-<script>
-function mostrarDecada(decada) {
-  document.querySelectorAll('.grupo').forEach(g => g.style.display = 'none');
-  const grupoActivo = document.getElementById(`decada-${decada}`);
-  grupoActivo.style.display = 'block';
-
-  // Reinicia la animación del carrusel al cambiar de década
-  const carrusel = grupoActivo.querySelector('.imagenes');
-  carrusel.style.animation = 'none';
-  setTimeout(() => carrusel.style.animation = '', 10);
-}
-</script>
-
-<section id="testimonios" class="testimonios-section">
-  <h2>Testimonios</h2>
-
-  <!-- Flechas PC -->
-  <button class="arrow prev">⟨</button>
-  <button class="arrow next">⟩</button>
-
-  <div class="carousel-wrapper">
-    <div class="carousel-track">
-      
-      <!-- TESTIMONIO 1 -->
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=faces&fit=crop&w=400&q=80">
-        <h3>La Kary</h3>
-        <p class="texto">“¡El mejor movimiento urbano que he apoyado!”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400">
-        <h3>Carlos R.</h3>
-        <p class="texto">“Los mejores lanzamientos del país.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400">
-        <h3>Maya Soul</h3>
-        <p class="texto">“Una gran familia musical.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400">
-        <h3>Valeria Flow</h3>
-        <p class="texto">“Mostrar mi talento nunca fue tan fácil.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400">
-        <h3>Maya Soul</h3>
-        <p class="texto">“Aquí encontré mi verdadera familia musical.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400">
-        <h3>Neko Beat</h3>
-        <p class="texto">“Beats que elevan el alma.”</p>
-        <div class="stars">★★★★☆</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400">
-        <h3>Leo Street</h3>
-        <p class="texto">“El soundtrack de mi barrio.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400">
-        <h3>Rafa</h3>
-        <p class="texto">“Visuales que derriten las retinas.”</p>
-        <div class="stars">★★★★☆</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=400">
-        <h3>Toni Bass</h3>
-        <p class="texto">“Desde el bajo hasta el corazón.”</p>
-        <div class="stars">★★★★☆</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-      <div class="testimonio-card">
-        <img class="foto" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400">
-        <h3>Samu</h3>
-        <p class="texto">“Los descubrí y ya soy fan.”</p>
-        <div class="stars">★★★★★</div>
-        <button class="like">👍 Me gusta</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-.testimonios-section {
-  background: #111;
-  color: #fff;
-  padding: 70px 0;
-  text-align: center;
-  position: relative;
-}
-
-h2 {
+.lanzamientos h2 {
+  font-size: 40px;
   margin-bottom: 40px;
-  color: #f0ebeb;
-  font-size: 2.3rem;
+  color: rgb(248, 248, 246);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
-/* Flechas PC */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #090909;
-  border: none;
-  color: rgb(244, 241, 241);
-  padding: 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 50;
-  font-size: 20px;
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-@media(max-width:768px){
-  .arrow{display:none;}
-}
-
-/* Carrusel */
-.carousel-wrapper {
-  overflow: hidden;
-}
-.carousel-track {
+.grid-lanzamientos {
   display: flex;
-  gap: 25px;
-  transition: transform .4s ease;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* Testimonios */
-.testimonio-card {
-  background: #1a1a1a;
-  flex: 0 0 calc(33.33% - 20px);
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 0 12px #ff007a55;
+.grid-lanzamientos img {
+  width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px black;
+  transition: transform .3s;
 }
+
+.grid-lanzamientos img:hover {
+  transform: scale(1.06);
+}
+
+/* Responsive */
 @media(max-width:768px){
-  .testimonio-card{flex:0 0 85%;}
-}
-
-.foto {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #0c0c0c;
-  margin-bottom: 12px;
-}
-
-.texto {
-  font-style: italic;
-  margin: 10px 0;
-  color: #ddd;
-}
-
-.stars {
-  color: gold;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.like {
-  background: #faf5f5;
-  border: none;
-  color: rgb(12, 11, 11);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.like:hover {
-  background: #0c0c0c;
-}
-
-/* 🔵 AZUL OSCURO PARA H3 */
-.testimonios-section h3 {
-  color: #131313;
+  .grid-lanzamientos img{
+    width: 90%;
+  }
 }
 </style>
-
-<script>
-// Movimiento automático + flechas + dedo
-const track = document.querySelector(".carousel-track");
-const cards = document.querySelectorAll(".testimonio-card");
-let i = 0;
-let view = window.innerWidth > 768 ? 3 : 1;
-
-function mover(){
-  i++;
-  if(i > cards.length - view) i = 0;
-  track.style.transform = `translateX(-${i * (100/view)}%)`;
-}
-let auto = setInterval(mover, 3000);
-
-// Flechas PC
-document.querySelector(".next").onclick = ()=>{ mover(); reiniciar(); };
-document.querySelector(".prev").onclick = ()=>{
-  i--;
-  if(i<0) i = cards.length - view;
-  track.style.transform = `translateX(-${i * (100/view)}%)`;
-  reiniciar();
-};
-
-// Dedo móvil
-let inicio=0;
-track.addEventListener("touchstart", e=> inicio = e.touches[0].clientX);
-track.addEventListener("touchend", e=>{
-  const fin = e.changedTouches[0].clientX;
-  if(inicio > fin + 50) mover();
-  if(inicio < fin - 50){
-    i--;
-    if(i<0) i = cards.length - view;
-    track.style.transform = `translateX(-${i * (100/view)}%)`;
-  }
-  reiniciar();
-});
-
-function reiniciar(){
-  clearInterval(auto);
-  auto = setInterval(mover, 3000);
-}
-</script>
-
 <footer class="footer-rock">
   <div class="footer-contenido">
 
@@ -2189,7 +289,7 @@ function reiniciar(){
       <h4>UBICACIÓN</h4>
       <iframe 
         class="footer-mapa"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.879868!2d-77.033!3d-12.1207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c83a4bd3056b%3A0x65d87f4c156a6c20!2sCalle%20Porta%20130!5e0!3m2!1ses-419!2spe!4v1234567890" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.879868!2d-77.033!3d-12.1207"
         allowfullscreen=""
         loading="lazy">
       </iframe>
@@ -2199,12 +299,13 @@ function reiniciar(){
 
   <p class="footer-copy">© 2025 BLACKSTAR RECORDS – Todos los derechos reservados</p>
 </footer>
-<style>.footer-rock {
+
+  <style>.footer-rock {
   background: #0a0a0a;
   padding: 60px 25px 40px;
   color: #e5e5e5;
   font-family: "Montserrat", sans-serif;
-  border-top: 3px solid #b10000; /* ROJIZO ROCK */
+  border-top: 3px solid #b10000;
 }
 
 .footer-contenido {
@@ -2216,16 +317,14 @@ function reiniciar(){
   gap: 40px;
 }
 
-/* COLUMNAS */
 .footer-col {
   flex: 1 1 300px;
 }
 
-/* LOGO */
 .footer-logo {
   width: 40px;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px #b10000); /* efecto glow rock */
+  filter: drop-shadow(0 0 10px #b10000);
 }
 
 .footer-col h3 {
@@ -2241,13 +340,11 @@ function reiniciar(){
   letter-spacing: 1px;
 }
 
-/* TEXTO */
 .footer-col p {
   margin: 8px 0;
   color: #d0d0d0;
 }
 
-/* REDES */
 .footer-redes a {
   display: inline-block;
   margin-right: 12px;
@@ -2263,16 +360,14 @@ function reiniciar(){
   border-bottom: 1px solid #b10000;
 }
 
-/* MAPA */
 .footer-mapa {
   width: 100%;
   height: 200px;
   border: none;
   border-radius: 10px;
-  filter: grayscale(100%) contrast(120%); /* estilo rock */
+  filter: grayscale(100%) contrast(120%);
 }
 
-/* COPYRIGHT */
 .footer-copy {
   text-align: center;
   margin-top: 40px;
@@ -2280,7 +375,6 @@ function reiniciar(){
   font-size: 13px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .footer-contenido {
     flex-direction: column;
